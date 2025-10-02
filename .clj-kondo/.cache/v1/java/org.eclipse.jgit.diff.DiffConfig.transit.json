@@ -1,0 +1,1 @@
+["^ ","~:members",["^ ","KEY",["~#set",[["^ ","~:flags",["^1",["~:public","~:static","~:field","~:final"]]]]],"isNoPrefix",["^1",[["^ ","^2",["^1",["~:method","^3"]]]]],"isRenameDetectionEnabled",["^1",[["^ ","^2",["^1",["^8","^3"]]]]],"getRenameDetectionType",["^1",[["^ ","^2",["^1",["^8","^3"]]]]],"getRenameLimit",["^1",[["^ ","^2",["^1",["^8","^3"]]]]]]]
