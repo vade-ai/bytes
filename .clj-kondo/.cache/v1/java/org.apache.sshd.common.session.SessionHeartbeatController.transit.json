@@ -1,0 +1,1 @@
+["^ ","~:members",["^ ","getSessionHeartbeatType",["~#set",[["^ ","~:flags",["^2",["~:method","~:public"]]]]],"getSessionHeartbeatInterval",["^2",[["^ ","^3",["^2",["^4","^5"]]]]],"disableSessionHeartbeat",["^2",[["^ ","^3",["^2",["^4","^5"]]]]],"setSessionHeartbeat",["^2",[["^ ","^3",["^2",["^4","^5"]]]]]]]
