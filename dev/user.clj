@@ -7,7 +7,8 @@
   [_]
   (clerk/build! {:paths ["notebooks/articles/intro_to_algorithms.clj"]
                  :index "index.md"
-                 :out-path "public"}))
+                 :out-path "public"
+                 :git/sha false}))
 
 (comment
   ;; start without file watcher, open browser when started
