@@ -23,42 +23,51 @@
                       :answer answer
                       :tags (vec (or concept-tags #{}))}))
    :render-fn '(fn [card]
-                 [:div.card-container
-                  {:class "my-4 p-4 border-2 border-blue-400 rounded-lg bg-blue-50"
-                   :data-card-id (:id card)}
+                 (let [[shown? set-shown!] (reagent.core/use-state false)]
+                   [:div.card-container
+                    {:class "my-4 p-4 border-2 border-blue-400 rounded-lg bg-blue-50"
+                     :data-card-id (:id card)}
 
-                  ;; Card header with icon
-                  [:div.card-header
-                   {:class "flex items-center gap-2 mb-2"}
-                   [:span.card-icon {:class "text-blue-600"} "🎯"]
-                   [:span.card-label {:class "text-sm font-semibold text-blue-600 uppercase"}
-                    "Review Card"]]
+                    ;; Card header with icon
+                    [:div.card-header
+                     {:class "flex items-center gap-2 mb-2"}
+                     [:span.card-icon {:class "text-blue-600"} "🎯"]
+                     [:span.card-label {:class "text-sm font-semibold text-blue-600 uppercase"}
+                      "Review Card"]]
 
-                  ;; Question
-                  [:div.card-question
-                   {:class "text-lg font-medium mb-3 text-gray-800"}
-                   (:question card)]
+                    ;; Question
+                    [:div.card-question
+                     {:class "text-lg font-medium mb-3 text-gray-800"}
+                     (:question card)]
 
-                  ;; Answer (shown immediately in Stage 1, will be hidden in Stage 2)
-                  [:div.card-answer
-                   {:class "p-3 bg-white rounded border border-gray-200"}
-                   [:div {:class "text-sm text-gray-500 mb-1"} "Answer:"]
-                   [:div {:class "text-gray-800"} (:answer card)]]
+                    ;; Show Answer button or Answer content
+                    (if shown?
+                      ;; Answer content (when shown)
+                      [:div.card-answer
+                       {:class "p-3 bg-white rounded border border-gray-200"}
+                       [:div {:class "text-sm text-gray-500 mb-1"} "Answer:"]
+                       [:div {:class "text-gray-800"} (:answer card)]]
 
-                  ;; Tags (if present)
-                  (when (seq (:tags card))
-                    [:div.card-tags
-                     {:class "flex gap-2 mt-3 flex-wrap"}
-                     (for [tag (:tags card)]
-                       [:span.tag
-                        {:key (str tag)
-                         :class "text-xs px-2 py-1 bg-blue-100 text-blue-700 rounded"}
-                        (name tag)])])
+                      ;; Show Answer button (when hidden)
+                      [:button.show-answer-btn
+                       {:class "px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition"
+                        :on-click #(set-shown! true)}
+                       "Show Answer"])
 
-                  ;; Card ID for debugging (will remove in production)
-                  [:div.card-debug
-                   {:class "text-xs text-gray-400 mt-2"}
-                   (str "Card ID: " (:id card))]])})
+                    ;; Tags (if present)
+                    (when (seq (:tags card))
+                      [:div.card-tags
+                       {:class "flex gap-2 mt-3 flex-wrap"}
+                       (for [tag (:tags card)]
+                         [:span.tag
+                          {:key (str tag)
+                           :class "text-xs px-2 py-1 bg-blue-100 text-blue-700 rounded"}
+                          (name tag)])])
+
+                    ;; Card ID for debugging (will remove in production)
+                    [:div.card-debug
+                     {:class "text-xs text-gray-400 mt-2"}
+                     (str "Card ID: " (:id card))]]))})
 
 ;; Helper function to display a card
 (defn show-card
@@ -70,14 +79,11 @@
                           :answer \"4\"}))"
   [card]
   ;; Extract the data directly here and pass as simple map
-  (let [{::cards/keys [id question answer concept-tags]} card
-        simple-card {:id id
-                     :question question
-                     :answer answer
-                     :tags (vec (or concept-tags #{}))}]
+  (let [{::cards/keys [id question answer concept-tags]} card]
     (clerk/html
      [:div.card-container
-      {:class "my-4 p-4 border-2 border-blue-400 rounded-lg bg-blue-50"}
+      {:class "my-4 p-4 border-2 border-blue-400 rounded-lg bg-blue-50"
+       :data-card-id id}
 
       ;; Card header with icon
       [:div.card-header
@@ -91,11 +97,23 @@
        {:class "text-lg font-medium mb-3 text-gray-800"}
        question]
 
-      ;; Answer (shown immediately in Stage 1)
-      [:div.card-answer
-       {:class "p-3 bg-white rounded border border-gray-200"}
-       [:div {:class "text-sm text-gray-500 mb-1"} "Answer:"]
-       [:div {:class "text-gray-800"} answer]]
+      ;; Answer (initially hidden, revealed on click)
+      [:div.card-answer-section
+       ;; Show Answer button
+       [:button.show-answer-btn
+        {:class "px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition"
+         :on-click #(let [target (.-target %)
+                          answer-div (.-nextElementSibling target)]
+                      (set! (.. target -style -display) "none")
+                      (set! (.. answer-div -style -display) "block"))}
+        "Show Answer"]
+
+       ;; Answer content (hidden by default)
+       [:div.card-answer
+        {:class "p-3 bg-white rounded border border-gray-200"
+         :style {:display "none"}}
+        [:div {:class "text-sm text-gray-500 mb-1"} "Answer:"]
+        [:div {:class "text-gray-800"} answer]]]
 
       ;; Tags (if present)
       (when (seq concept-tags)

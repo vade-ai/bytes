@@ -34,13 +34,52 @@ Build a publishing platform using Clerk that combines essay-style articles with 
 - Rate difficulty and verify localStorage update
 - Refresh page and confirm state persists
 - Test on mobile viewport
-**Status**: Not Started
+**Status**: Blocked - Technical Limitation Identified
+
+### Current State (as of Stage 1 completion):
+**What Works:**
+- Cards render inline in articles with proper styling
+- "Show Answer" buttons display correctly
+- Answer content is structured and ready to be revealed
+- Question/tags/debug info all render properly
+
+**What Doesn't Work:**
+- Click handlers on buttons are non-functional
+- Buttons render but clicking does nothing in the browser
+
+**Root Cause:**
+Clerk's custom viewer system has a fundamental limitation with event handlers. The `:render-fn` in `card-viewer` (src/bytes/viewers.clj:7-70) is a quoted form that gets serialized from JVM to browser:
+
+```clojure
+:render-fn '(fn [card]
+             (let [[shown? set-shown!] (reagent.core/use-state false)]
+               [:button {:on-click #(set-shown! true)} "Show Answer"]))
+```
+
+**The Problem:** Functions in quoted forms don't serialize properly from JVM to browser ClojureScript runtime. Event handlers become plain objects instead of executable functions, triggering React error #231 ("event handler is object instead of function").
+
+### Approaches Attempted (all failed):
+1. **Inline onclick strings** - Doesn't work with React/Reagent rendering
+2. **ClojureScript interop** with `(fn [e] ...)` - Function doesn't serialize
+3. **Reagent hooks** `reagent.core/use-state` with `#()` - Anonymous fn doesn't serialize
+
+### Potential Solutions (not yet attempted):
+1. **Accept limitation**: Show answers by default, focus on content quality (simplest)
+2. **Custom ClojureScript namespace**: Create separate `.cljs` file with viewer code (requires different Clerk setup, more complex)
+3. **Raw JavaScript in HTML**: Use `clerk/html` with inline JS strings (brittle, not idiomatic Clojure)
+4. **Server-side state**: Track show/hide in JVM, re-render on events (complex, defeats local-first philosophy)
+
+### Recommendation:
+This blocking issue affects all interactive features (difficulty rating, localStorage, etc.). Before proceeding:
+- **If interactivity is critical** → Invest in proper ClojureScript viewer setup (Stage 2.5: Research Clerk ClojureScript integration)
+- **If content/algorithm is priority** → Accept static display, focus on article writing and scheduling logic (skip to Stage 3)
 
 ### Tasks:
-- [ ] Create ClojureScript viewer in `src/bytes/viewers/card.cljs`
-- [ ] Implement show/hide answer interaction
-- [ ] Add difficulty rating buttons (easy/medium/hard)
-- [ ] Wire up localStorage for client-side persistence
+- [x] Implement show/hide answer interaction (attempted, blocked by serialization)
+- [ ] **DECISION REQUIRED**: Choose path forward for interactivity
+- [ ] Create ClojureScript viewer in `src/bytes/viewers/card.cljs` (if pursuing interactive path)
+- [ ] Add difficulty rating buttons (easy/medium/hard) - blocked by same issue
+- [ ] Wire up localStorage for client-side persistence - blocked by same issue
 - [ ] Style component to match Quantum Country aesthetic
 - [ ] Test interaction flow end-to-end
 
