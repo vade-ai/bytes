@@ -1,9 +1,17 @@
 (ns user
-  (:require [nextjournal.clerk :as clerk]))
+  (:require [nextjournal.clerk :as clerk]
+            [bytes.viewers]))
+
+(defn build-static-site
+  "Build static site with all articles"
+  [_]
+  (clerk/build! {:paths ["notebooks/articles/intro_to_algorithms.clj"]
+                 :index "index.md"
+                 :out-path "public"}))
 
 (comment
   ;; start without file watcher, open browser when started
-  (clerk/serve! {:browse? true :port 6677})
+  (clerk/serve! {:browse? true :port 7777})
 
   ;; start with file watcher for these sub-directory paths
   (clerk/serve! {:watch-paths ["notebooks" "src"]})
@@ -15,21 +23,8 @@
   (clerk/clear-cache!)
 
   ;; or call `clerk/show!` explicitly
-  (clerk/show! "notebooks/introduction.clj")
-  (clerk/show! "notebooks/data_science.clj")
-  (clerk/show! "notebooks/sicmutils.clj")
-  (clerk/show! "notebooks/rule_30.clj")
-  (clerk/show! "notebooks/semantic.clj")
-  (clerk/show! "notebooks/images.clj")
-
+  (clerk/show! "notebooks/articles/intro_to_algorithms.clj")
   (clerk/show! "index.md")
 
-  ;; TODO If you would like more details about how Clerk works, here's a
-  ;; notebook with some implementation details.
-  ;; (clerk/show! "notebooks/how_clerk_works.clj")
-
   ;; produce a static app
-  (clerk/build-static-app! {:paths (mapv #(str "notebooks/" % ".clj")
-                                         '[introduction data_science rule_30 semantic])})
-
-  )
+  (build-static-site nil))

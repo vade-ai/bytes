@@ -1,0 +1,15 @@
+{:paths ["src" "dev" "notebooks"]
+ :tasks {:init (do
+                 (def port 7777)
+                 (def out-path "public"))
+
+         serve    {:doc "Start Clerk development server with file watcher"
+                   :task (clojure (format "-M:dev -e \"(require '[nextjournal.clerk :as clerk] '[bytes.viewers]) (clerk/serve! {:port %d :watch-paths [\\\"notebooks\\\" \\\"src\\\"]})\"" port))}
+
+         build    {:doc "Build static site to public/"
+                   :task (do
+                           (shell "rm -rf" out-path)
+                           (clojure "-X:dev user/build-static-site"))}
+
+         clean    {:doc "Remove build artifacts"
+                   :task (shell "rm -rf" out-path ".clerk")}}}
