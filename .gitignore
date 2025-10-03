@@ -59,4 +59,8 @@ projects/**/pom.xml
 
 # Clerk
 .clerk/
-.public/
+public/
+
+# Node/npm (if needed in future)
+node_modules/
+package-lock.json
