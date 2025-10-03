@@ -58,4 +58,5 @@ projects/**/pom.xml
 .envrc
 
 # Clerk
-.clerk/cache/
+.clerk/
+.public/

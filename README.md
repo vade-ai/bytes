@@ -107,6 +107,25 @@ Start a REPL and evaluate forms from `dev/user.clj`:
 (build-static-site nil)
 ```
 
+## Deployment
+
+The site automatically deploys to GitHub Pages on every push to `main`.
+
+### Setup GitHub Pages
+
+1. Go to your repository Settings → Pages
+2. Under "Build and deployment":
+   - Source: GitHub Actions
+3. Push to `main` branch to trigger deployment
+4. Site will be available at `https://<username>.github.io/<repo-name>/`
+
+### Manual Deployment
+
+```bash
+bb build
+# Deploy the public/ directory to your hosting service
+```
+
 ## Dependencies
 
 - **Clojure 1.10.3** - Core language
