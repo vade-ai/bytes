@@ -1,6 +1,11 @@
 ;; # Introduction to Algorithms 🚀
 ^{:nextjournal.clerk/visibility {:code :hide}}
 (ns notebooks.articles.intro-to-algorithms
+  {:nextjournal.clerk/open-graph
+   {:title "Introduction to Algorithms - Vade Bytes"
+    :description "Learn fundamental algorithms with embedded spaced repetition cards. Covers algorithm properties, complexity analysis, and classic examples like binary search."
+    :url "https://vade-ai.github.io/bytes/notebooks/articles/intro_to_algorithms"
+    :image "https://vade-ai.github.io/bytes/og-image.png"}}
   (:require [nextjournal.clerk :as clerk]
             [bytes.cards :as cards]
             [bytes.viewers :as viewers]))

@@ -6,9 +6,8 @@
   "Build static site with all articles"
   [_]
   (clerk/build! {:paths ["notebooks/articles/intro_to_algorithms.clj"]
-                 :index "index.md"
-                 :out-path "public"
-                 :git/sha false}))
+                 :index "index.clj"
+                 :out-path "public"}))
 
 (comment
   ;; start without file watcher, open browser when started
