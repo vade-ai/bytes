@@ -1,21 +1,6 @@
-{:paths ["src" "dev" "notebooks"]
- :tasks {:init (do
-                 (def port 7777)
-                 (def out-path "public"))
+{:tasks
+ {build {:doc "Build static site with Clay"
+         :task (shell "clj -M -m build")}
 
-         serve    {:doc "Start Clerk development server with file watcher"
-                   :task (clojure (format "-M:dev -e \"(require '[nextjournal.clerk :as clerk] '[bytes.viewers]) (clerk/serve! {:port %d :watch-paths [\\\"notebooks\\\" \\\"src\\\"]})\"" port))}
-
-         build    {:doc "Build static site to public/"
-                   :task (do
-                           (shell "rm -rf" out-path)
-                           (clojure "-X:dev user/build-static-site"))}
-
-         preview  {:doc "Preview built static site (requires python3)"
-                   :task (do
-                           (println "Starting HTTP server on http://localhost:8000")
-                           (println "Press Ctrl+C to stop")
-                           (shell "python3 -m http.server 8000 -d" out-path))}
-
-         clean    {:doc "Remove build artifacts"
-                   :task (shell "rm -rf" out-path ".clerk")}}}
+  clean {:doc "Remove build artifacts"
+         :task (shell "rm -rf public .clay")}}}
