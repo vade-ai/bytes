@@ -1,0 +1,28 @@
+---
+title: "About Vade Bytes"
+---
+
+## What is Vade Bytes?
+
+Vade Bytes is a technical blog where we share insights, explorations, and learnings from building AI-powered systems.
+
+## Topics We Cover
+
+- AI & Machine Learning
+- Data Engineering
+- System Design
+- Clojure & Functional Programming
+- Technical Deep Dives
+
+## Writing Philosophy
+
+We believe in:
+
+- **Learning in public** - Sharing both successes and challenges
+- **Technical depth** - Going beyond surface-level explanations
+- **Reproducible examples** - Code you can actually run
+- **Interactive visualizations** - Making data come alive
+
+## Technology
+
+This blog is built with [Clay](https://scicloj.github.io/clay/), enabling literate programming in Clojure with rich visualizations powered by [Kindly](https://scicloj.github.io/kindly-noted/kindly).

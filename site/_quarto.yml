@@ -1,0 +1,29 @@
+project:
+  type: website
+
+website:
+  title: "Vade Bytes"
+  favicon: "favicon.ico"
+  site-url: "https://vade-ai.github.io/bytes"
+  draft-mode: unlinked
+  open-graph: true
+  navbar:
+    title: "Vade Bytes"
+    right:
+      - about.qmd
+      - posts.qmd
+      - icon: github
+        href: "https://github.com/vade-ai/bytes"
+      - icon: rss
+        href: posts.xml
+
+format:
+  html:
+    theme:
+      light: [ flatly, brand, styles.scss, styles-light.scss ]
+      dark: [ darkly, brand, styles.scss, styles-dark.scss ]
+    respect-user-color-scheme: true
+
+brand:
+  light: brand-light.yml
+  dark: brand-dark.yml

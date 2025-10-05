@@ -1,6 +1,166 @@
-{:tasks
- {build {:doc "Build static site with Clay"
-         :task (shell "clj -M -m build")}
+{:min-bb-version "1.0.0"
 
-  clean {:doc "Remove build artifacts"
-         :task (shell "rm -rf public .clay")}}}
+ :tasks
+ {;; Development tasks
+  dev
+  {:doc "Start Clay in watch mode for interactive development"
+   :task (shell "clojure -M:clay")}
+
+  watch
+  {:doc "Alias for dev - watch and live reload"
+   :task (run 'dev)}
+
+  ;; Build tasks
+  build
+  {:doc "Build Clojure namespaces to Quarto markdown"
+   :task (shell "clojure -M:clay -A:markdown")}
+
+  render
+  {:doc "Render Quarto site to HTML"
+   :requires ([babashka.fs :as fs])
+   :task (do
+           (when-not (fs/exists? "site")
+             (println "❌ site/ directory not found")
+             (System/exit 1))
+           (shell "quarto render site")
+           (println "✅ Site rendered to site/_site/"))}
+
+  site
+  {:doc "Build and render complete site"
+   :task (do
+           (println "📦 Building content with Clay...")
+           (run 'build)
+           (println "\n🎨 Rendering site with Quarto...")
+           (run 'render))}
+
+  ;; Preview tasks
+  preview
+  {:doc "Preview the built site with Quarto"
+   :task (shell "quarto preview site")}
+
+  serve
+  {:doc "Build and preview the site"
+   :task (do
+           (run 'site)
+           (println "\n🌐 Starting preview server...")
+           (run 'preview))}
+
+  ;; Clean tasks
+  clean
+  {:doc "Clean build artifacts"
+   :requires ([babashka.fs :as fs])
+   :task (do
+           (when (fs/exists? "site/_site")
+             (fs/delete-tree "site/_site")
+             (println "🧹 Removed site/_site/"))
+           (when (fs/exists? "temp")
+             (fs/delete-tree "temp")
+             (println "🧹 Removed temp/"))
+           (when (fs/exists? ".quarto")
+             (fs/delete-tree ".quarto")
+             (println "🧹 Removed .quarto/"))
+           (doseq [qmd-dir (fs/glob "site" "**/*.qmd")]
+             (let [parent (fs/parent qmd-dir)]
+               (when (and (not= (str parent) "site")
+                          (fs/exists? parent))
+                 (fs/delete-tree parent)
+                 (println (str "🧹 Removed " parent)))))
+           (println "✨ Clean complete"))}
+
+  clean-all
+  {:doc "Deep clean including Clojure caches"
+   :requires ([babashka.fs :as fs])
+   :task (do
+           (run 'clean)
+           (when (fs/exists? ".cpcache")
+             (fs/delete-tree ".cpcache")
+             (println "🧹 Removed .cpcache/")))}
+
+  ;; Utility tasks
+  check
+  {:doc "Check if required tools are installed"
+   :requires ([babashka.process :refer [shell]])
+   :task (do
+           (println "Checking required tools...")
+           (try
+             (shell {:out :string} "clojure --version")
+             (println "✅ Clojure CLI installed")
+             (catch Exception _
+               (println "❌ Clojure CLI not found")))
+           (try
+             (shell {:out :string} "quarto --version")
+             (println "✅ Quarto installed")
+             (catch Exception _
+               (println "❌ Quarto not found")))
+           (try
+             (shell {:out :string} "python3 --version")
+             (println "✅ Python installed")
+             (catch Exception _
+               (println "❌ Python not found"))))}
+
+  new-post
+  {:doc "Create a new blog post from template"
+   :requires ([babashka.fs :as fs]
+              [clojure.string :as str])
+   :task (let [title (or (first *command-line-args*)
+                         (do (println "Usage: bb new-post <title>")
+                             (System/exit 1)))
+               slug (-> title
+                        str/lower-case
+                        (str/replace (re-pattern "\\s+") "_")
+                        (str/replace (re-pattern "[^a-z0-9_]") ""))
+               date (-> (java.time.LocalDate/now)
+                        str)
+               namespace-name (str "posts." slug)
+               file-path (str "src/posts/" slug ".clj")]
+           (when (fs/exists? file-path)
+             (println (str "❌ Post already exists: " file-path))
+             (System/exit 1))
+           (fs/create-dirs "src/posts")
+           (spit file-path
+                 (format "^{:kindly/hide-code true
+  :clay {:title \"%s\"
+         :quarto {:author \"Your Name\"
+                  :date \"%s\"
+                  :type :post
+                  :category :clojure
+                  :tags [:example]}}}
+(ns %s
+  (:require [scicloj.kindly.v4.kind :as kind]))
+
+;; # %s
+;;
+;; Write your post content here...
+
+;; ## Example
+
+(+ 1 1)
+"
+                         title
+                         date
+                         namespace-name
+                         title))
+           (println (str "✅ Created new post: " file-path)))}
+
+  help
+  {:doc "Show available tasks"
+   :override-builtin true
+   :task (do
+           (println "Vade Bytes - Babashka Tasks\n")
+           (println "Development:")
+           (println "  bb dev        - Start Clay in watch mode")
+           (println "  bb watch      - Alias for dev")
+           (println "\nBuilding:")
+           (println "  bb build      - Build content with Clay")
+           (println "  bb render     - Render site with Quarto")
+           (println "  bb site       - Build and render (full build)")
+           (println "\nPreview:")
+           (println "  bb preview    - Preview the site")
+           (println "  bb serve      - Build and preview")
+           (println "\nMaintenance:")
+           (println "  bb clean      - Remove build artifacts")
+           (println "  bb clean-all  - Deep clean including caches")
+           (println "  bb check      - Check required tools")
+           (println "\nUtilities:")
+           (println "  bb new-post <title> - Create a new blog post")
+           (println "  bb help       - Show this help"))}}}

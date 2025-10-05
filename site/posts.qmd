@@ -1,0 +1,9 @@
+---
+title: "Posts"
+listing:
+  contents: "**/*.qmd"
+  type: default
+  sort: "date desc"
+  categories: true
+  feed: true
+---
