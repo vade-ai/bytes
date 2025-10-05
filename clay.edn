@@ -1,0 +1,19 @@
+{:base-target-path   "temp"
+ :base-source-path   "src"
+ :quarto-target-path "site"
+ :quarto             ^:replace {}
+ :subdirs-to-sync    ["src"]
+ :keep-sync-root     false
+ :flatten-targets    false
+ :remote-repo        {:git-url "https://github.com/vade-ai/bytes"
+                      :branch  "main"}
+ :hide-ui-header     true
+ ;; :config/transform   civitas.db/expand-authors
+ ;; :use-kindly-render true
+
+ ;; aliases
+ :markdown
+ {:render           true
+  :base-target-path "site"
+  :format           [:quarto :html]
+  :run-quarto       false}}

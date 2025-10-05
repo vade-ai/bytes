@@ -1,0 +1,21 @@
+color:
+  background: "#222222"    # Dark background
+  foreground: "#ddeaf1"    # Light text
+  primary:    "#78B159"    # Clojure green (links, buttons)
+  secondary:  "#4B8FD7"    # Clojure blue (accents, hovers)
+  tertiary:   "#A4C49C"    # Soft green (callouts, highlights)
+
+logo:
+  medium: /images/civitas-icon.svg
+
+typography:
+  fonts:
+    - family: Fira Sans
+      source: google
+    - family: Fira Code
+      source: google
+  base: Fira Sans
+  headings: Fira Sans
+  monospace: Fira Code
+  monospace-inline: Fira Code
+  monospace-block: Fira Code

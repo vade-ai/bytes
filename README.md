@@ -1,153 +1,141 @@
-# Bytes - Mnemonic Medium Publishing Platform
+# Vade Bytes
 
-A Clerk-based publishing platform combining essay-style articles with embedded spaced repetition prompts, inspired by [Quantum Country](https://quantum.country/).
+Technical explorations and insights from the Vade team.
 
-## Quick Start
+## About
 
-### Development
+Vade Bytes is built with [Clay](https://scicloj.github.io/clay/), enabling literate programming in Clojure with rich, interactive visualizations.
 
-Start the Clerk development server with file watcher:
+## Writing Posts
+
+### Quick Start
+
+1. Create a new Clojure namespace in `src/` following the pattern:
+
+```clojure
+^{:kindly/hide-code true
+  :clay {:title "Your Post Title"
+         :quarto {:author "Your Name"
+                  :date "2025-10-05"
+                  :type :post
+                  :category :your-category
+                  :tags [:tag1 :tag2]}}}
+(ns your.namespace.post-name
+  (:require [scicloj.kindly.v4.kind :as kind]))
+
+;; # Your Post Title
+;;
+;; Write prose in comment blocks like this.
+```
+
+2. Write code and add visualizations using Kindly:
+
+```clojure
+^kind/table
+{:x [1 2 3]
+ :y [4 5 6]}
+```
+
+### Development with Babashka (Recommended)
+
+We provide Babashka tasks for common workflows:
 
 ```bash
+# Create a new blog post
+bb new-post "My Awesome Post"
+
+# Start interactive development (Clay watch mode)
+bb dev
+
+# Build and preview the complete site
 bb serve
-```
 
-The server will run on http://localhost:7777 and automatically reload when you edit files in `notebooks/` or `src/`.
+# Build the site
+bb site              # Full build (Clay + Quarto)
+bb build             # Just Clay markdown generation
+bb render            # Just Quarto rendering
 
-### Building Static Site
-
-Generate the static site to `public/`:
-
-```bash
-bb build
-```
-
-The output includes all articles and an index page, ready for deployment.
-
-### Clean Build Artifacts
-
-```bash
+# Clean build artifacts
 bb clean
+bb clean-all         # Deep clean including caches
+
+# Check your environment
+bb check
+
+# See all tasks
+bb tasks
 ```
 
-## Project Structure
+### Manual Commands
 
-```
-bytes/
-├── notebooks/
-│   └── articles/          # Article notebooks with embedded cards
-│       ├── intro_to_algorithms.clj
-│       └── template.md
-├── src/
-│   └── bytes/
-│       ├── cards.clj      # Card data structure and helpers
-│       └── viewers.clj    # Custom Clerk viewers for cards
-├── dev/
-│   └── user.clj           # REPL helpers and build functions
-├── public/                # Generated static site (gitignored)
-├── bb.edn                 # Babashka tasks
-├── deps.edn               # Clojure dependencies
-└── index.md               # Landing page
-```
-
-## Writing Articles
-
-Articles live in `notebooks/articles/` and can be either:
-- `.clj` files (code by default, prose in `;;` comment blocks)
-- `.md` files (Markdown by default, code in fenced blocks)
-
-### Creating Spaced Repetition Cards
-
-```clojure
-(ns notebooks.articles.my-article
-  (:require [bytes.cards :as cards]
-            [bytes.viewers :as viewers]))
-
-;; Create a card
-(cards/card {:id "unique-card-id"
-             :question "What is the answer?"
-             :answer "42"
-             :concept-tags #{:philosophy :hitchhikers-guide}})
-
-;; Display inline (automatically picks up custom viewer)
-(viewers/show-card
-  (cards/card {...}))
-
-;; Display multiple cards
-(viewers/show-cards [card1 card2 card3])
-```
-
-### Card Anatomy
-
-Cards are rendered as styled boxes with:
-- Question (always visible)
-- "Show Answer" button (currently non-interactive - see IMPLEMENTATION_PLAN.md)
-- Answer content (revealed on click - pending)
-- Concept tags
-- Card ID for debugging
-
-## REPL Workflow
-
-Start a REPL and evaluate forms from `dev/user.clj`:
-
-```clojure
-;; Start server
-(clerk/serve! {:browse? true :port 7777})
-
-;; With file watcher
-(clerk/serve! {:watch-paths ["notebooks" "src"]})
-
-;; Clear cache
-(clerk/clear-cache!)
-
-;; Show specific article
-(clerk/show! "notebooks/articles/intro_to_algorithms.clj")
-
-;; Build static site
-(build-static-site nil)
-```
-
-## Deployment
-
-The site automatically deploys to GitHub Pages on every push to `main`.
-
-### Setup GitHub Pages
-
-1. Go to your repository Settings → Pages
-2. Under "Build and deployment":
-   - Source: GitHub Actions
-3. Push to `main` branch to trigger deployment
-4. Site will be available at `https://<username>.github.io/<repo-name>/`
-
-### Manual Deployment
+If you prefer not to use Babashka:
 
 ```bash
-bb build
-# Deploy the public/ directory to your hosting service
+# Interactive development
+clojure -M:clay
+
+# Build static site
+clojure -M:clay -A:markdown
+quarto render site
 ```
 
-## Dependencies
+The built site will be in `site/_site/` directory.
 
-- **Clojure 1.10.3** - Core language
-- **Clerk 0.17.1102** - Notebook system and static site generator
-- **SLF4J NOP** - Silence logging warnings
+### File Organization
 
-## Development Status
+- `src/` - Source namespaces for blog posts
+- `site/` - Quarto configuration and static assets
+- `temp/` - Temporary build files (git ignored)
 
-### ✅ Completed (Stage 1)
-- Card data structure with EDN schema
-- Custom Clerk viewer for rendering cards inline
-- Static site generation with babashka tasks
-- Sample article with embedded cards
-- Clean, focused repository structure
+### Categories
 
-### 🚧 Blocked (Stage 2)
-Interactive features are blocked due to Clerk's function serialization limitations. See [IMPLEMENTATION_PLAN.md](IMPLEMENTATION_PLAN.md) for details.
+Use these predefined categories:
+- `:ai` - AI & Machine Learning
+- `:data` - Data Engineering & Analytics
+- `:systems` - System Design & Architecture
+- `:clojure` - Clojure & Functional Programming
+- `:meta` - About this blog
 
-## Contributing
+Tags are flexible - use whatever makes sense for your post.
 
-See [IMPLEMENTATION_PLAN.md](IMPLEMENTATION_PLAN.md) for roadmap and technical decisions.
+## Testing the Build Locally
+
+To test the complete build pipeline locally:
+
+```bash
+# Clean previous builds (optional)
+rm -rf site/_site site/examples temp
+
+# Run the full build
+clojure -M:clay -A:markdown
+quarto render site
+
+# Preview the site
+open site/_site/index.html
+# or use: quarto preview site
+```
+
+## Publishing
+
+The GitHub Actions workflow automatically builds and deploys when you push to `main`:
+
+1. Write your post in `src/`
+2. Preview locally with `clojure -M:clay`
+3. Test the full build (see above)
+4. Commit and push to `main` branch
+5. GitHub Actions will build and deploy to GitHub Pages
+
+**Manual trigger:** You can also trigger the workflow manually from the GitHub Actions tab.
+
+## Technology Stack
+
+- **Clay** - Literate programming for Clojure
+- **Kindly** - Rich visualizations and data display
+- **Quarto** - Static site generation
+- **Noj** - Data science toolkit
 
 ## License
 
-Copyright © 2025
+Copyright © 2025 Vade AI
+
+Distributed under the Eclipse Public License version 1.0.

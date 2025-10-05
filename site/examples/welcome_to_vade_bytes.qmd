@@ -1,0 +1,133 @@
+---
+author: Vade Team
+date: '2025-10-05'
+type: post
+category: meta
+tags: [announcement, introduction]
+format:
+  html: {title: Welcome to Vade Bytes}
+
+---
+<style></style><style>.printedClojure .sourceCode {
+  background-color: transparent;
+  border-style: none;
+}
+</style><style>.clay-limit-image-width .clay-image {max-width: 100%}
+.clay-side-by-side .sourceCode {margin: 0}
+.clay-side-by-side {margin: 1em 0}
+</style>
+<script src="welcome_to_vade_bytes_files/md-default0.js" type="text/javascript"></script><script src="welcome_to_vade_bytes_files/md-default1.js" type="text/javascript"></script><script src="welcome_to_vade_bytes_files/vega2.js" type="text/javascript"></script><script src="welcome_to_vade_bytes_files/vega3.js" type="text/javascript"></script><script src="welcome_to_vade_bytes_files/vega4.js" type="text/javascript"></script>
+
+# Welcome to Vade Bytes
+
+Welcome to our technical blog! This is an example post demonstrating
+how to write content using Clay and Clojure.
+
+
+## Why Literate Programming?
+
+Writing blog posts as Clojure namespaces gives us several advantages:
+
+- **Executable code** - All code examples are real, tested code
+- **Interactive development** - See your post as you write it
+- **Rich visualizations** - Tables, charts, and custom viewers
+- **Version control** - Blog posts are just code
+
+
+## A Simple Example
+
+Here's a simple calculation:
+
+
+::: {.sourceClojure}
+```clojure
+(def numbers (range 1 11))
+```
+:::
+
+
+We can display this as a table:
+
+
+::: {.sourceClojure}
+```clojure
+^kind/table
+{:x numbers
+ :squares (map #(* % %) numbers)
+ :cubes (map #(* % % %) numbers)}
+```
+:::
+
+
+::: {.clay-table}
+
+```{=html}
+<table class="table table-hover table-responsive clay-table"><thead><tr><th>x</th><th>squares</th><th>cubes</th></tr></thead><tbody><tr><td>1</td><td>1</td><td>1</td></tr><tr><td>2</td><td>4</td><td>8</td></tr><tr><td>3</td><td>9</td><td>27</td></tr><tr><td>4</td><td>16</td><td>64</td></tr><tr><td>5</td><td>25</td><td>125</td></tr><tr><td>6</td><td>36</td><td>216</td></tr><tr><td>7</td><td>49</td><td>343</td></tr><tr><td>8</td><td>64</td><td>512</td></tr><tr><td>9</td><td>81</td><td>729</td></tr><tr><td>10</td><td>100</td><td>1000</td></tr></tbody></table>
+```
+
+:::
+
+
+
+## Visualizations
+
+Clay supports various visualization types through Kindly annotations.
+Here's a simple chart:
+
+
+::: {.sourceClojure}
+```clojure
+^kind/vega-lite
+{:data {:values (map (fn [x]
+                       {:x x
+                        :y (* x x)
+                        :z (* x x x)})
+                     (range 1 11))}
+ :mark :line
+ :encoding {:x {:field :x :type :quantitative}
+            :y {:field :y :type :quantitative}
+            :color {:field "series" :type :nominal}}
+ :layer [{:mark :line
+          :encoding {:x {:field :x}
+                     :y {:field :y}}}
+         {:mark :line
+          :encoding {:x {:field :x}
+                     :y {:field :z}}}]}
+```
+:::
+
+
+
+```{=html}
+<div><script>vegaEmbed(document.currentScript.parentElement, {"data":{"values":[{"x":1,"y":1,"z":1},{"x":2,"y":4,"z":8},{"x":3,"y":9,"z":27},{"x":4,"y":16,"z":64},{"x":5,"y":25,"z":125},{"x":6,"y":36,"z":216},{"x":7,"y":49,"z":343},{"x":8,"y":64,"z":512},{"x":9,"y":81,"z":729},{"x":10,"y":100,"z":1000}]},"mark":"line","encoding":{"x":{"field":"x","type":"quantitative"},"y":{"field":"y","type":"quantitative"},"color":{"field":"series","type":"nominal"}},"layer":[{"mark":"line","encoding":{"x":{"field":"x"},"y":{"field":"y"}}},{"mark":"line","encoding":{"x":{"field":"x"},"y":{"field":"z"}}}]});</script></div>
+```
+
+
+
+## How to Write Posts
+
+1. Create a new `.clj` file in the `src/` directory
+2. Add metadata to the namespace form (see top of this file)
+3. Write prose in comment blocks (lines starting with `;;`)
+4. Write executable Clojure code
+5. Use Kindly annotations to create visualizations
+
+
+## Next Steps
+
+- Run `clojure -M:clay` to preview your posts
+- Run `clojure -M:clay -A:markdown` to build the site
+- Commit and push to publish
+
+Happy writing!
+
+
+```{=html}
+<div style="background-color:grey;height:2px;width:100%;"></div>
+```
+
+
+
+```{=html}
+<div><pre><small><small>source: <a href="https://github.com/vade-ai/bytes/blob/main/src/examples/welcome_to_vade_bytes.clj">src/examples/welcome_to_vade_bytes.clj</a></small></small></pre></div>
+```

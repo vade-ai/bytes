@@ -1,0 +1,9 @@
+---
+title: "Vade Bytes"
+about:
+  template: jolla
+---
+
+Welcome to **Vade Bytes** - technical explorations, insights, and deep dives from the Vade team.
+
+[About](about.qmd) | [Posts](posts.qmd)

@@ -1,3 +1,56 @@
-{:paths ["." "src" "notebooks"]
- :deps {org.clojure/clojure {:mvn/version "1.12.0"}
-        org.scicloj/clay {:mvn/version "2-beta23"}}}
+{:paths ["src"]
+
+ :deps
+ {org.clojure/clojure                         {:mvn/version "1.12.1"}
+  org.scicloj/noj                             {:mvn/version "2-beta18"}
+  markdown-clj/markdown-clj                   {:mvn/version "1.12.4"}
+  org.clojure/core.async                      {:mvn/version "1.9.808-alpha1"}
+  io.github.clojure/core.async.flow-monitor   {:git/tag "v0.1.2"
+                                               :git/url "https://github.com/clojure/core.async.flow-monitor"
+                                               :git/sha "6248a5d"}
+  metosin/malli                               {:mvn/version "0.19.1"}
+  clj-fuzzy/clj-fuzzy                         {:mvn/version "0.4.1"}
+  clj-thamil/clj-thamil                       {:mvn/version "0.2.0"}
+  org.scicloj/clay                            {#_#_:mvn/version "2-beta54"
+                                               :git/url "https://github.com/scicloj/clay.git"
+                                               :git/sha "26fb97b5ea2f72a98f8a64d5b8b8abf705767a39"}
+  thi.ng/geom                                 {:mvn/version "1.0.1"}
+  org.eclipse.elk/org.eclipse.elk.core        {:mvn/version "0.10.0"}
+  org.eclipse.elk/org.eclipse.elk.graph       {:mvn/version "0.10.0"}
+  org.eclipse.elk/org.eclipse.elk.graph.json  {:mvn/version "0.10.0"}
+  org.eclipse.elk/org.eclipse.elk.alg.common  {:mvn/version "0.10.0"}
+  org.eclipse.elk/org.eclipse.elk.alg.layered {:mvn/version "0.10.0"}
+  backtick/backtick                           {:mvn/version "0.3.5"}
+  camel-snake-kebab/camel-snake-kebab         {:mvn/version "0.4.3"}
+  io.github.alza-bitz/snowpark-clj            {:git/url "https://github.com/alza-bitz/snowpark-clj.git"
+                                               :git/sha "7856d9ca2080b188f9feec115ca709d3f54877b0"}
+  org.lwjgl/lwjgl                             {:mvn/version "3.3.6"}
+  org.lwjgl/lwjgl$natives-linux               {:mvn/version "3.3.6"}
+  org.lwjgl/lwjgl-opengl                      {:mvn/version "3.3.6"}
+  org.lwjgl/lwjgl-opengl$natives-linux        {:mvn/version "3.3.6"}
+  org.lwjgl/lwjgl-opengl$natives-windows      {:mvn/version "3.3.6"}
+  org.lwjgl/lwjgl-opengl$natives-macos        {:mvn/version "3.3.6"}
+  org.lwjgl/lwjgl-glfw                        {:mvn/version "3.3.6"}
+  org.lwjgl/lwjgl-glfw$natives-linux          {:mvn/version "3.3.6"}
+  org.lwjgl/lwjgl-glfw$natives-windows        {:mvn/version "3.3.6"}
+  org.lwjgl/lwjgl-glfw$natives-macos          {:mvn/version "3.3.6"}
+  org.lwjgl/lwjgl-stb                         {:mvn/version "3.3.6"}
+  org.lwjgl/lwjgl-stb$natives-linux           {:mvn/version "3.3.6"}
+  org.lwjgl/lwjgl-stb$natives-windows         {:mvn/version "3.3.6"}
+  org.lwjgl/lwjgl-stb$natives-macos           {:mvn/version "3.3.6"}
+  generateme/fastmath                         {:mvn/version "3.0.0-alpha3"}
+  clj-http/clj-http                           {:mvn/version "3.13.1"}}
+
+ :aliases
+ {;; Build the site with `clojure -M:clay -A:markdown`
+  ;; Run Clay in watch mode with `clojure -M:clay`
+  :clay       {:main-opts ["-m" "scicloj.clay.v2.main"]
+               :jvm-opts  ["-Dclojure.main.report=stderr"
+                           "--add-opens=java.base/java.nio=ALL-UNNAMED"]}
+  ;; When debugging libraries
+  :local-deps {:override-deps {org.scicloj/clay          {:local/root "../clay"}
+                               org.scicloj/kindly        {:local/root "../kindly"}
+                               org.scicloj/kindly-advice {:local/root "../kindly-advice"}
+                               org.scicloj/kindly-render {:local/root "../kindly-render"}}}
+  :neil       {:project {:name io.github.vade-ai/bytes}}
+  :dev        {:jvm-opts ["--add-opens=java.base/java.nio=ALL-UNNAMED"]}}}
