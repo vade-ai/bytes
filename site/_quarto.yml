@@ -23,6 +23,7 @@ format:
       light: [ flatly, brand, styles.scss, styles-light.scss ]
       dark: [ darkly, brand, styles.scss, styles-dark.scss ]
     respect-user-color-scheme: true
+    code-fold: false
 
 brand:
   light: brand-light.yml

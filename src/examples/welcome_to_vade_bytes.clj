@@ -64,11 +64,11 @@
 ;; 3. Write prose in comment blocks (lines starting with `;;`)
 ;; 4. Write executable Clojure code
 ;; 5. Use Kindly annotations to create visualizations
-;;
+
 ;; ## Next Steps
 ;;
-;; - Run `clojure -M:clay` to preview your posts
-;; - Run `clojure -M:clay -A:markdown` to build the site
+;; - Run `bb dev` to preview your posts interactively
+;; - Run `bb site` to build the complete site
 ;; - Commit and push to publish
 ;;
 ;; Happy writing!
