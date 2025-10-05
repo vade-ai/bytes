@@ -136,7 +136,3 @@ I'm restarting my journey with fresh perspective and sustainable pace. Building 
 No viral hooks. No follower count games. Just genuine curiosity and real building.
 
 **Let's learn together.**
-
----
-
-*This blog is built with [Clay](https://scicloj.github.io/clay/), enabling literate programming in Clojure with rich visualizations.*
