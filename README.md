@@ -44,11 +44,14 @@ We provide Babashka tasks for common workflows:
 # Create a new blog post
 bb new-post "My Awesome Post"
 
-# Start interactive development (Clay watch mode)
+# Start Clay interactive development (browser-based)
 bb dev
 
-# Build and preview the complete site
-bb serve
+# Build and preview the complete static site
+bb dev-site   # or bb serve
+
+# Just preview (without rebuilding)
+bb preview
 
 # Build the site
 bb site              # Full build (Clay + Quarto)
