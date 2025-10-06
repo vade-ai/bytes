@@ -6,18 +6,6 @@
   {:doc "Start Clay in interactive browser watch mode"
    :task (shell "clojure -M:clay")}
 
-  dev-site
-  {:doc "Build site and start preview server"
-   :task (do
-           (println "📦 Building site...")
-           (run 'site)
-           (println "\n🌐 Starting preview server...")
-           (run 'preview))}
-
-  watch
-  {:doc "Alias for dev - Clay interactive mode"
-   :task (run 'dev)}
-
   ;; Build tasks
   build
   {:doc "Build Clojure namespaces to Quarto markdown"
@@ -42,16 +30,12 @@
            (run 'render))}
 
   ;; Preview tasks
-  preview
-  {:doc "Preview the built site with Quarto"
-   :task (shell "quarto preview site")}
-
   serve
   {:doc "Build and preview the site"
    :task (do
            (run 'site)
            (println "\n🌐 Starting preview server...")
-           (run 'preview))}
+           (shell "quarto preview site"))}
 
   ;; Clean tasks
   clean
@@ -157,15 +141,11 @@
            (println "Vade Bytes - Babashka Tasks\n")
            (println "Development:")
            (println "  bb dev        - Start Clay in interactive browser mode")
-           (println "  bb dev-site   - Build site and start preview server")
-           (println "  bb watch      - Alias for dev")
+           (println "  bb serve      - Build and preview the static site")
            (println "\nBuilding:")
            (println "  bb build      - Build content with Clay")
            (println "  bb render     - Render site with Quarto")
            (println "  bb site       - Build and render (full build)")
-           (println "\nPreview:")
-           (println "  bb preview    - Preview the site")
-           (println "  bb serve      - Build and preview")
            (println "\nMaintenance:")
            (println "  bb clean      - Remove build artifacts")
            (println "  bb clean-all  - Deep clean including caches")

@@ -47,11 +47,8 @@ bb new-post "My Awesome Post"
 # Start Clay interactive development (browser-based)
 bb dev
 
-# Build and preview the complete static site
-bb dev-site   # or bb serve
-
-# Just preview (without rebuilding)
-bb preview
+# Build and preview the static site
+bb serve
 
 # Build the site
 bb site              # Full build (Clay + Quarto)
