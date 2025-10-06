@@ -3,11 +3,19 @@
  :tasks
  {;; Development tasks
   dev
-  {:doc "Start Clay in watch mode for interactive development"
+  {:doc "Start Clay in interactive browser watch mode"
    :task (shell "clojure -M:clay")}
 
+  dev-site
+  {:doc "Build site and start preview server"
+   :task (do
+           (println "📦 Building site...")
+           (run 'site)
+           (println "\n🌐 Starting preview server...")
+           (run 'preview))}
+
   watch
-  {:doc "Alias for dev - watch and live reload"
+  {:doc "Alias for dev - Clay interactive mode"
    :task (run 'dev)}
 
   ;; Build tasks
@@ -148,7 +156,8 @@
    :task (do
            (println "Vade Bytes - Babashka Tasks\n")
            (println "Development:")
-           (println "  bb dev        - Start Clay in watch mode")
+           (println "  bb dev        - Start Clay in interactive browser mode")
+           (println "  bb dev-site   - Build site and start preview server")
            (println "  bb watch      - Alias for dev")
            (println "\nBuilding:")
            (println "  bb build      - Build content with Clay")
