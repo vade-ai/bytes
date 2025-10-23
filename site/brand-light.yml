@@ -1,21 +1,25 @@
 color:
-  background: "#F0F4F8"    # Soft white
-  foreground: "#222222"    # Dark text
-  primary:    "#78B159"    # Clojure green (links, buttons)
-  secondary:  "#4B8FD7"    # Clojure blue (accents, hovers)
-  tertiary:   "#A4C49C"    # Soft green (callouts, highlights)
+  background: "#FFFFFF"    # Pure white
+  foreground: "#171717"    # Almost black (easier on eyes than pure black)
+  primary:    "#6366F1"    # Indigo - professional and energetic
+  secondary:  "#737373"    # Gray for metadata
+  tertiary:   "#F5F5F5"    # Light gray for code blocks
+  success:    "#10B981"    # Green
+  info:       "#3B82F6"    # Blue
+  warning:    "#F59E0B"    # Amber
+  danger:     "#EF4444"    # Red
 
 logo:
   medium: /images/civitas-icon.svg
 
 typography:
   fonts:
-    - family: Fira Sans
+    - family: Inter
       source: google
-    - family: Fira Code
+    - family: JetBrains Mono
       source: google
-  base: Fira Sans
-  headings: Fira Sans
-  monospace: Fira Code
-  monospace-inline: Fira Code
-  monospace-block: Fira Code
+  base: Inter
+  headings: Inter
+  monospace: JetBrains Mono
+  monospace-inline: JetBrains Mono
+  monospace-block: JetBrains Mono

@@ -1,0 +1,61 @@
+<div class="sidebar-left" id="sidebar-left">
+  <div class="posts-list">
+    <h3>Recent Posts</h3>
+    <ul id="posts-list-items">
+      <!-- Posts will be dynamically populated -->
+      <li>
+        <a href="/posts/welcome.html">
+          <span class="post-title">Welcome to Vade Bytes</span>
+          <span class="post-date">Oct 5, 2025</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<!-- Toggle button for mobile/tablet -->
+<button class="sidebar-toggle" id="sidebar-toggle" style="display: none;" aria-label="Toggle posts list">
+  <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M2 4h16M2 10h16M2 16h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+  </svg>
+</button>
+
+<script>
+  // Toggle sidebar on mobile/tablet
+  document.getElementById('sidebar-toggle')?.addEventListener('click', function() {
+    document.getElementById('sidebar-left')?.classList.toggle('open');
+  });
+
+  // Close sidebar when clicking outside
+  document.addEventListener('click', function(event) {
+    const sidebar = document.getElementById('sidebar-left');
+    const toggle = document.getElementById('sidebar-toggle');
+    if (sidebar && toggle &&
+        !sidebar.contains(event.target) &&
+        !toggle.contains(event.target) &&
+        sidebar.classList.contains('open')) {
+      sidebar.classList.remove('open');
+    }
+  });
+
+  // Populate posts list dynamically
+  function loadPostsList() {
+    // This will be populated from a JSON feed or at build time
+    // For now, we'll keep the static example
+  }
+
+  // Mark current post as active
+  function markActivePost() {
+    const currentPath = window.location.pathname;
+    const links = document.querySelectorAll('.posts-list a');
+    links.forEach(link => {
+      if (link.getAttribute('href') === currentPath) {
+        link.classList.add('active');
+      }
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', function() {
+    markActivePost();
+  });
+</script>

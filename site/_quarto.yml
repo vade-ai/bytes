@@ -20,10 +20,25 @@ website:
 format:
   html:
     theme:
-      light: [ flatly, brand, styles.scss, styles-light.scss ]
-      dark: [ darkly, brand, styles.scss, styles-dark.scss ]
+      light: [ flatly, brand, styles.scss, styles-light.scss, styles-layout.scss, styles-sr.scss ]
+      dark: [ darkly, brand, styles.scss, styles-dark.scss, styles-layout.scss, styles-sr.scss ]
     respect-user-color-scheme: true
     code-fold: false
+    toc: true
+    toc-depth: 4
+    toc-location: right
+    number-sections: false
+    grid:
+      sidebar-width: 280px
+      body-width: 800px
+      margin-width: 320px
+      gutter-width: 2rem
+    include-in-header:
+      - _head-includes.html
+    include-before-body:
+      - _sidebar-left.html
+    include-after-body:
+      - _body-includes.html
 
 brand:
   light: brand-light.yml

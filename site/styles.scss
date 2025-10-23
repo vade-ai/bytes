@@ -1,89 +1,218 @@
 /*-- scss:rules --*/
+
+/* ============================================
+   Base Typography & Readability
+   ============================================ */
+
+body {
+  font-size: 18px;
+  line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Main content max width for optimal readability */
+#quarto-content main {
+  max-width: 680px;
+  margin-left: auto;
+  margin-right: auto;
+  opacity: 1;
+  position: relative;
+  z-index: 1;
+}
+
+/* Headings - Strong visual hierarchy */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+h1 {
+  font-size: 2.5rem;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+h2 {
+  font-size: 1.875rem;
+  line-height: 1.3;
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+h3 {
+  font-size: 1.5rem;
+  line-height: 1.4;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+/* Paragraphs */
+p {
+  margin-bottom: 1.5rem;
+  line-height: 1.75;
+}
+
+/* Links */
+a {
+  text-decoration: none;
+  transition: opacity 0.15s ease;
+}
+
+a:hover {
+  opacity: 0.7;
+}
+
+/* Code */
 code {
-  font-size: 0.9em;
+  font-size: 0.875em;
+  padding: 0.125rem 0.25rem;
+  border-radius: 0.25rem;
+}
+
+pre {
+  margin: 2rem 0;
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  overflow-x: auto;
 }
 
 pre code {
-  font-size: 0.98em;
+  font-size: 0.875rem;
+  padding: 0;
+  background: transparent;
 }
 
 .printedClojure .sourceCode pre {
-  background-color: $code-bg;
+  background-color: $tertiary;
 }
 
+/* Lists */
+ul, ol {
+  margin-bottom: 1.5rem;
+  padding-left: 1.5rem;
+}
+
+li {
+  margin-bottom: 0.5rem;
+  line-height: 1.75;
+}
+
+/* Blockquotes */
+blockquote {
+  margin: 2rem 0;
+  padding: 1rem 1.5rem;
+  border-left: 4px solid $primary;
+  font-style: italic;
+}
+
+/* Tables */
+table {
+  margin: 2rem 0;
+  width: 100%;
+  border-collapse: collapse;
+}
+
+/* Horizontal rules */
+hr {
+  margin: 3rem 0;
+  border: none;
+  border-top: 1px solid $border-color;
+}
+
+/* Figure captions */
+figcaption {
+  margin: 1rem auto;
+  text-align: center;
+  font-size: 0.875rem;
+  color: $secondary;
+}
+
+/* Navbar */
 .navbar a:hover,
 .navbar .active {
-  color: $tertiary;
-  text-decoration: underline;
+  opacity: 0.7;
 }
 
+/* Post listings */
 div.quarto-post h3 a {
   color: $primary;
 }
 
 .quarto-listing .quarto-post {
-    border-bottom: none;
+  border-bottom: none;
 }
 
-figcaption {
-  margin: auto;
-  text-align: center;
+/* Code output */
+.sourceCode + .cell-output,
+pre + .cell-output {
+  margin-top: 1rem;
+  margin-bottom: 2rem;
 }
 
+/* Dark mode plots */
 body.quarto-dark .js-plotly-plot,
 body.quarto-dark .mermaid {
   filter: invert(100%) hue-rotate(180deg);
 }
 
-/* Add more breathing room throughout the site */
-
-/* More space around sub-headings, except in listings */
-h2:not(.listing-title), h3:not(.listing-title) {
-  margin-top: 1.5em !important;
-  margin-bottom: 0.8em !important;
-}
-
-/* Increase paragraph spacing */
-p {
-  margin-bottom: 1.2em;
-  line-height: 1.6;
-}
-
-/* More space around code blocks */
-pre {
-  margin: 1.5em 0;
-}
-
-/* Special handling for code blocks followed by output */
-/* Keep code and output connected but add space around the pair */
-.sourceCode + .cell-output,
-pre + .cell-output {
-  margin-top: 0.5em;
-  margin-bottom: 1.5em;
-}
-
-/* More space around horizontal rules */
-hr {
-  margin: 2em 0;
-}
-
-/* Add breathing room to list items */
-li {
-  margin-bottom: 0.5em;
-}
-
-/* Add space around blockquotes */
-blockquote {
-  margin: 1.5em 0;
-  padding: 1em 1.5em;
-}
-
-/* Add space around tables */
-table {
-  margin: 1.5em 0;
-}
-
 /* Add space between main headings and descriptions */
 #title-block-header.quarto-title-block.default .quarto-title .title {
   margin-bottom: 0.5em;
+}
+
+/* ============================================
+   Responsive Content Elements
+   ============================================ */
+
+/* Make images responsive */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Make tables responsive */
+@media (max-width: 768px) {
+  table {
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Code blocks - horizontal scroll on mobile */
+  pre {
+    margin: 1.5rem 0;
+    padding: 1rem;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  pre code {
+    font-size: 0.8125rem;
+  }
+
+  /* Lists - reduce padding */
+  ul, ol {
+    padding-left: 1.25rem;
+  }
+
+  /* Blockquotes - less padding */
+  blockquote {
+    margin: 1.5rem 0;
+    padding: 0.75rem 1rem;
+    border-left-width: 3px;
+  }
+}
+
+/* Extra small screens */
+@media (max-width: 480px) {
+  pre {
+    padding: 0.75rem;
+  }
+
+  pre code {
+    font-size: 0.75rem;
+  }
 }

@@ -1,0 +1,83 @@
+<!-- Vade Bytes Custom Body Includes -->
+
+<!-- Spaced Repetition System -->
+<script src="/js/spaced-repetition.js"></script>
+
+<!-- Right Sidebar Content -->
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Enhance right sidebar - keep it simple and focused on navigation
+    const marginColumn = document.querySelector('#quarto-margin-sidebar');
+    if (marginColumn) {
+      // Create container
+      const sidebarContainer = document.createElement('div');
+      sidebarContainer.className = 'margin-sidebar';
+
+      // Preserve existing TOC if it exists (primary purpose)
+      const existingTOC = marginColumn.querySelector('nav#TOC');
+      if (existingTOC) {
+        existingTOC.classList.add('toc-section');
+        sidebarContainer.appendChild(existingTOC);
+      }
+
+      // Add simple newsletter CTA at bottom (single, unobtrusive)
+      const newsletter = document.createElement('div');
+      newsletter.className = 'newsletter-signup';
+      newsletter.innerHTML = `
+        <h4>Newsletter</h4>
+        <p>Weekly insights on AI, data, and systems</p>
+        <form id="newsletter-form">
+          <input type="email" name="email" placeholder="your@email.com" required aria-label="Email address" />
+          <button type="submit">Subscribe</button>
+        </form>
+        <div id="newsletter-message" style="margin-top: 0.5rem; font-size: 0.875rem;"></div>
+      `;
+      sidebarContainer.appendChild(newsletter);
+
+      // Replace margin content
+      marginColumn.innerHTML = '';
+      marginColumn.appendChild(sidebarContainer);
+
+      // Newsletter form handler
+      const newsletterForm = document.getElementById('newsletter-form');
+      if (newsletterForm) {
+        newsletterForm.addEventListener('submit', async function(e) {
+          e.preventDefault();
+          const email = this.email.value;
+          const messageDiv = document.getElementById('newsletter-message');
+
+          try {
+            messageDiv.textContent = 'Thank you for subscribing!';
+            messageDiv.style.color = '#10B981';
+            this.reset();
+          } catch (error) {
+            messageDiv.textContent = 'Something went wrong. Please try again.';
+            messageDiv.style.color = '#EF4444';
+          }
+        });
+      }
+    }
+
+    // Initialize spaced repetition if prompts exist
+    if (typeof initSpacedRepetition === 'function') {
+      initSpacedRepetition();
+    }
+
+    // Add smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+  });
+</script>
+
+<!-- Analytics (placeholder) -->
+<!-- <script defer data-domain="bytes.vade.ai" src="https://plausible.io/js/script.js"></script> -->
