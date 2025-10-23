@@ -4,7 +4,7 @@
  {;; Development tasks
   dev
   {:doc "Start Clay in interactive browser watch mode"
-   :task (shell "clojure -M:clay")}
+   :task (shell "clojure -M:clay src")}
 
   ;; Build tasks
   build
@@ -36,34 +36,6 @@
            (run 'site)
            (println "\n🌐 Starting preview server...")
            (shell "quarto preview site"))}
-
-  watch
-  {:doc "Watch .clj files and rebuild, with live preview"
-   :requires ([babashka.fs :as fs]
-              [babashka.process :as p])
-   :task (do
-           (println "📦 Initial build...")
-           (run 'build)
-           (println "\n👀 Watching src/ for changes...")
-           (println "🌐 Starting Quarto preview (auto-refreshes on changes)...")
-           (println "Press Ctrl+C to stop\n")
-
-           ;; Start quarto preview in background
-           (let [quarto-proc (p/process ["quarto" "preview" "site"] {:out :inherit :err :inherit})]
-
-             ;; Watch for changes
-             (fs/watch "src"
-                       (fn [event]
-                         (when (and (= (:type event) :modify)
-                                    (clojure.string/ends-with? (str (:path event)) ".clj"))
-                           (println (str "\n🔄 Detected change: " (:path event)))
-                           (println "📦 Rebuilding...")
-                           (run 'build)
-                           (println "✅ Rebuild complete - Quarto will auto-refresh\n")))
-                       {:recursive true})
-
-             ;; Wait for quarto process
-             (deref quarto-proc)))}
 
   ;; Clean tasks
   clean
@@ -169,7 +141,6 @@
            (println "Vade Bytes - Babashka Tasks\n")
            (println "Development:")
            (println "  bb dev        - Start Clay in interactive browser mode")
-           (println "  bb watch      - Watch .clj files and auto-rebuild with live preview")
            (println "  bb serve      - Build and preview the static site")
            (println "\nBuilding:")
            (println "  bb build      - Build content with Clay")
