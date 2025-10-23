@@ -4,7 +4,16 @@
  {;; Development tasks
   dev
   {:doc "Start Clay in interactive browser watch mode"
-   :task (shell "clojure -M:clay src")}
+   :task (shell "clojure -M:clay examples/welcome_to_vade_bytes.clj")}
+
+  dev-site
+  {:doc "Build to site/ and start Quarto preview (for full site preview)"
+   :task (do
+           (println "📦 Building content to site/...")
+           (run 'build)
+           (println "\n🌐 Starting Quarto preview...")
+           (println "Note: Edit .clj files, then run 'bb build' to rebuild\n")
+           (shell "quarto preview site"))}
 
   ;; Build tasks
   build
@@ -140,10 +149,11 @@
    :task (do
            (println "Vade Bytes - Babashka Tasks\n")
            (println "Development:")
-           (println "  bb dev        - Start Clay in interactive browser mode")
-           (println "  bb serve      - Build and preview the static site")
+           (println "  bb dev        - Start Clay in interactive browser mode (temp/ preview)")
+           (println "  bb dev-site   - Build and preview full Quarto site (run 'bb build' to rebuild)")
+           (println "  bb serve      - Same as dev-site")
            (println "\nBuilding:")
-           (println "  bb build      - Build content with Clay")
+           (println "  bb build      - Build content with Clay to site/")
            (println "  bb render     - Render site with Quarto")
            (println "  bb site       - Build and render (full build)")
            (println "\nMaintenance:")
