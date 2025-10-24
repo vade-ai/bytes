@@ -38,11 +38,6 @@ $text-muted:     #737373;     // Gray for metadata
   color: #ECB768 !important;  // Gold for active link (matches dark mode)
 }
 
-/* Left sidebar in light mode */
-.sidebar-left {
-  border-top: 1px solid rgba(123, 125, 212, 0.12);  // Subtle periwinkle top border
-}
-
 /* Inline code in light mode */
 code:not(pre code) {
   background: #CCCCF4;  // Light periwinkle background

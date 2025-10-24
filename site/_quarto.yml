@@ -9,6 +9,7 @@ website:
   open-graph: true
   navbar:
     title: "Vade Bytes"
+    pinned: true
     right:
       - about.qmd
       - posts.qmd
