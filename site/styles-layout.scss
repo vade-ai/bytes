@@ -8,9 +8,9 @@
 .sidebar-left {
   position: fixed;
   left: 0;
-  top: 60px;
+  top: 56px;  // Adjusted for smaller navbar height
   width: 280px;
-  height: calc(100vh - 60px);
+  height: calc(100vh - 56px);
   overflow-y: auto;
   padding: 2rem 1.5rem;
   border-right: 1px solid rgba(0, 0, 0, 0.08);

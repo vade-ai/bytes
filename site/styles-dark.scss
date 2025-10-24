@@ -20,13 +20,9 @@ body.quarto-dark {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);  // Stronger shadow for depth
     backdrop-filter: blur(10px);  // Subtle blur effect
     -webkit-backdrop-filter: blur(10px);
-  }
-
-  .navbar .container-fluid {
-    max-width: 1200px;  // Constrain navbar width
-    margin: 0 auto;
-    padding-left: 2rem;
-    padding-right: 2rem;
+    min-height: 3.5rem;  // Decrease height
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
   }
 
   .navbar-brand {
