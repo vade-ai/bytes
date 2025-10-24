@@ -13,14 +13,9 @@
   height: calc(100vh - 60px);
   overflow-y: auto;
   padding: 2rem 1.5rem;
-  border-right: 1px solid $border-color;
-  opacity: 0.4;
+  border-right: 1px solid rgba(0, 0, 0, 0.08);
+  background-color: rgba(0, 0, 0, 0.01);
   z-index: 100;
-  transition: opacity 0.2s ease;
-}
-
-.sidebar-left:hover {
-  opacity: 1;
 }
 
 /* Quarto's margin column for right sidebar */
@@ -30,12 +25,7 @@
   height: fit-content;
   max-height: calc(100vh - 100px);
   overflow-y: auto;
-  opacity: 0.5;
-  transition: opacity 0.2s ease;
-}
-
-.margin-sidebar:hover {
-  opacity: 1;
+  padding-left: 1rem;
 }
 
 /* ============================================
@@ -51,6 +41,7 @@
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.1em;
+  color: #6c757d;
 }
 
 .posts-list ul {
@@ -69,25 +60,25 @@
   line-height: 1.4;
   display: block;
   padding: 0.25rem 0;
-  transition: opacity 0.15s ease;
+  color: #6c757d;
+  font-weight: 400;
+  transition: color 0.15s ease;
 }
 
 .posts-list a:hover {
-  opacity: 1;
+  color: #495057;
 }
 
 .posts-list a.active {
   color: $primary;
   font-weight: 500;
-  opacity: 1;
 }
 
 .posts-list .post-date {
   font-size: 0.6875rem;
-  color: $secondary;
+  color: #adb5bd;
   display: block;
   margin-top: 0.125rem;
-  opacity: 0.6;
 }
 
 /* ============================================
@@ -104,6 +95,7 @@ nav#TOC h2 {
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.12em;
+  color: #6c757d;
 }
 
 /* Show all TOC items - override Quarto's collapse */
@@ -132,19 +124,20 @@ nav#TOC a {
   text-decoration: none;
   font-size: 0.8125rem;
   line-height: 1.4;
-  transition: opacity 0.15s ease;
+  color: #6c757d;
+  font-weight: 400;
+  transition: color 0.15s ease;
   display: block;
 }
 
 nav#TOC a:hover {
-  opacity: 1;
+  color: #495057;
 }
 
 /* Active/current section */
 nav#TOC a.active {
   color: $primary;
   font-weight: 500;
-  opacity: 1;
 }
 
 /* Hide the top-level page title in TOC (it's redundant) */
@@ -165,9 +158,9 @@ nav#TOC > ul > li:first-child > ul {
 .sr-progress {
   margin-bottom: 3rem;
   padding: 1.25rem;
-  background: $tertiary;
-  opacity: 0.6;
+  background: rgba(0, 0, 0, 0.02);
   border-radius: 0.5rem;
+  border: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 .sr-progress h4 {
@@ -176,6 +169,7 @@ nav#TOC > ul > li:first-child > ul {
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.05em;
+  color: #6c757d;
 }
 
 .sr-timeline {
@@ -245,13 +239,7 @@ nav#TOC > ul > li:first-child > ul {
 .newsletter-signup {
   padding: 1.5rem 0 0 0;
   margin-top: 2rem;
-  border-top: 1px solid $border-color;
-  opacity: 0.6;
-  transition: opacity 0.2s ease;
-}
-
-.newsletter-signup:hover {
-  opacity: 1;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
 }
 
 .newsletter-signup h4 {
@@ -260,12 +248,13 @@ nav#TOC > ul > li:first-child > ul {
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.1em;
+  color: #6c757d;
 }
 
 .newsletter-signup p {
   font-size: 0.75rem;
   margin-bottom: 0.75rem;
-  color: $secondary;
+  color: #adb5bd;
   line-height: 1.4;
 }
 
@@ -310,7 +299,7 @@ nav#TOC > ul > li:first-child > ul {
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  opacity: 0.6;
+  color: #6c757d;
 }
 
 .related-links ul {
@@ -379,15 +368,6 @@ nav#TOC > ul > li:first-child > ul {
   #quarto-content main {
     max-width: 800px;
   }
-
-  /* Keep right sidebar but make it less prominent */
-  .margin-sidebar {
-    opacity: 0.4;
-  }
-
-  .margin-sidebar:hover {
-    opacity: 1;
-  }
 }
 
 /* Mobile: Hide both sidebars, full-width content */
@@ -404,7 +384,6 @@ nav#TOC > ul > li:first-child > ul {
     margin-top: 3rem;
     padding-top: 2rem;
     border-top: 1px solid $border-color;
-    opacity: 1;
   }
 
   /* Make TOC collapsible on mobile */
