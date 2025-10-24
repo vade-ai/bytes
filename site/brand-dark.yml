@@ -1,13 +1,13 @@
 color:
-  background: "#0A0A0A"    # Near black (reduces eye strain vs pure black)
-  foreground: "#FAFAFA"    # Off-white
-  primary:    "#818CF8"    # Brighter indigo for dark mode
-  secondary:  "#A3A3A3"    # Gray for metadata
-  tertiary:   "#1A1A1A"    # Slightly lighter black for code blocks
-  success:    "#34D399"    # Lighter green
-  info:       "#60A5FA"    # Lighter blue
-  warning:    "#FBBF24"    # Lighter amber
-  danger:     "#F87171"    # Lighter red
+  background: "#1A1A2E"    # Deep periwinkle-tinted black
+  foreground: "#E8E8F2"    # Soft white with periwinkle hint
+  primary:    "#9B9CE0"    # Softer periwinkle for dark backgrounds
+  secondary:  "#9999AA"    # Periwinkle-tinted gray for metadata
+  tertiary:   "#2A2A3E"    # Slightly lighter periwinkle-black for code blocks
+  success:    "#68D391"    # Green (consistent with light)
+  info:       "#9B9CE0"    # Use primary periwinkle
+  warning:    "#D4A563"    # Muted gold for dark mode - mapped to warning for CTAs
+  danger:     "#FC8181"    # Red (soft)
 
 logo:
   medium: /images/civitas-icon.svg

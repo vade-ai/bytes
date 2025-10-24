@@ -1,0 +1,380 @@
+/*-- scss:defaults --*/
+
+/* ============================================
+   Vade Brand Design System Variables
+   Complete design token system for Vade AI & Vade Bytes
+   Based on VADE_BRAND_DESIGN_SYSTEM.md
+   ============================================ */
+
+/* ============================================
+   Colors - Periwinkle + Rocketfuel Gold
+   ============================================ */
+
+/* Primary Palette */
+$vade-periwinkle-light: #CCCCF4;      // Backgrounds, highlights
+$vade-periwinkle-deep: #7B7DD4;       // Links, headings, interactive
+$vade-gold: #ECB768;                   // CTAs, energy, highlights
+$vade-text-dark: #2D2D4A;             // Body text
+
+/* Dark Mode Palette */
+$vade-periwinkle-dark: #9B9CE0;       // Softer for dark backgrounds
+$vade-gold-dark: #D4A563;             // Muted for dark mode
+$vade-bg-dark: #1A1A2E;               // Deep periwinkle-tinted black
+$vade-text-light: #E8E8F2;            // Soft white with periwinkle hint
+
+/* Neutrals */
+$vade-white: #FFFFFF;
+$vade-black: #0F0F1A;
+$vade-gray-light: #F5F5F8;
+$vade-gray-mid: #9999AA;
+$vade-gray-dark: #4A4A5E;
+
+/* Semantic Colors */
+$vade-success: #68D391;               // Green, accessible
+$vade-warning: #F6AD55;               // Orange, complements gold
+$vade-error: #FC8181;                 // Red, soft
+$vade-info: $vade-periwinkle-deep;   // Use primary periwinkle
+
+/* ============================================
+   Typography Scale
+   Modular Scale: 1.250 (Major Third)
+   Base: 16px
+   ============================================ */
+
+/* Font Families */
+$font-family-primary: 'Inter', -apple-system, BlinkMacSystemFont,
+                      'Segoe UI', 'Roboto', 'Helvetica Neue',
+                      Arial, sans-serif;
+
+$font-family-code: 'JetBrains Mono', 'Fira Code', 'Consolas',
+                   'Monaco', monospace;
+
+/* Font Sizes */
+$text-xs: 0.64rem;      // 10.24px
+$text-sm: 0.8rem;       // 12.8px
+$text-base: 1rem;       // 16px (base)
+$text-lg: 1.25rem;      // 20px
+$text-xl: 1.563rem;     // 25px
+$text-2xl: 1.953rem;    // 31.25px
+$text-3xl: 2.441rem;    // 39px
+$text-4xl: 3.052rem;    // 48.83px
+$text-5xl: 3.815rem;    // 61px
+
+/* Font Weights */
+$weight-regular: 400;    // Body text
+$weight-medium: 500;     // Subtle emphasis
+$weight-semibold: 600;   // Subheadings
+$weight-bold: 700;       // Headings, CTAs
+
+/* Line Heights */
+$leading-tight: 1.25;    // Headings
+$leading-normal: 1.5;    // Body text
+$leading-relaxed: 1.75;  // Long-form content
+$leading-loose: 2;       // Special cases
+
+/* Letter Spacing */
+$tracking-tighter: -0.05em;
+$tracking-tight: -0.025em;
+$tracking-normal: 0;
+$tracking-wide: 0.025em;
+$tracking-wider: 0.05em;
+
+/* ============================================
+   Spacing Scale
+   Based on 0.25rem (4px) increments
+   ============================================ */
+
+$space-0: 0;
+$space-1: 0.25rem;    // 4px
+$space-2: 0.5rem;     // 8px
+$space-3: 0.75rem;    // 12px
+$space-4: 1rem;       // 16px
+$space-5: 1.25rem;    // 20px
+$space-6: 1.5rem;     // 24px
+$space-8: 2rem;       // 32px
+$space-10: 2.5rem;    // 40px
+$space-12: 3rem;      // 48px
+$space-16: 4rem;      // 64px
+$space-20: 5rem;      // 80px
+$space-24: 6rem;      // 96px
+
+/* ============================================
+   Border Radius
+   ============================================ */
+
+$radius-sm: 0.25rem;    // 4px
+$radius-base: 0.5rem;   // 8px
+$radius-lg: 0.75rem;    // 12px
+$radius-xl: 1rem;       // 16px
+$radius-full: 9999px;   // Fully rounded
+
+/* ============================================
+   Shadows
+   ============================================ */
+
+$shadow-sm: 0 1px 2px rgba($vade-text-dark, 0.05);
+$shadow-base: 0 2px 4px rgba($vade-text-dark, 0.08);
+$shadow-md: 0 4px 8px rgba($vade-text-dark, 0.1);
+$shadow-lg: 0 8px 16px rgba($vade-text-dark, 0.12);
+$shadow-xl: 0 12px 24px rgba($vade-text-dark, 0.15);
+
+/* Focus Shadow */
+$shadow-focus-periwinkle: 0 0 0 3px rgba($vade-periwinkle-light, 0.5);
+$shadow-focus-gold: 0 0 0 3px rgba($vade-gold, 0.3);
+
+/* ============================================
+   Transitions
+   ============================================ */
+
+$transition-fast: 0.15s ease;
+$transition-base: 0.2s ease;
+$transition-slow: 0.3s ease;
+
+$easing-default: cubic-bezier(0.4, 0, 0.2, 1);
+$easing-in: cubic-bezier(0.4, 0, 1, 1);
+$easing-out: cubic-bezier(0, 0, 0.2, 1);
+$easing-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+
+/* ============================================
+   Z-Index Scale
+   ============================================ */
+
+$z-base: 1;
+$z-dropdown: 100;
+$z-sticky: 200;
+$z-fixed: 300;
+$z-modal-backdrop: 400;
+$z-modal: 500;
+$z-popover: 600;
+$z-tooltip: 700;
+
+/* ============================================
+   Breakpoints
+   ============================================ */
+
+$breakpoint-xs: 480px;
+$breakpoint-sm: 640px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 1024px;
+$breakpoint-xl: 1280px;
+$breakpoint-2xl: 1536px;
+
+/* ============================================
+   Layout
+   ============================================ */
+
+$content-max-width: 680px;       // Optimal reading width
+$container-sm: 640px;
+$container-md: 768px;
+$container-lg: 1024px;
+$container-xl: 1280px;
+
+/* Sidebar widths */
+$sidebar-left-width: 280px;
+$sidebar-right-width: 280px;
+
+/* ============================================
+   Component-Specific Variables
+   ============================================ */
+
+/* Buttons */
+$button-padding-sm: $space-2 $space-4;
+$button-padding-base: $space-3 $space-6;
+$button-padding-lg: $space-4 $space-8;
+$button-border-radius: $radius-base;
+
+/* Inputs */
+$input-padding: $space-3 $space-4;
+$input-border-width: 2px;
+$input-border-color: $vade-gray-mid;
+$input-border-radius: $radius-base;
+$input-focus-border: $vade-periwinkle-deep;
+
+/* Cards */
+$card-padding: $space-6;
+$card-border-radius: $radius-lg;
+$card-border-color: $vade-gray-light;
+
+/* Alerts */
+$alert-padding: $space-4 $space-6;
+$alert-border-radius: $radius-base;
+$alert-border-width: 4px;
+
+/* Code Blocks */
+$code-bg: #1E1E2E;
+$code-padding: $space-6;
+$code-border-radius: $radius-base;
+$code-border-left-width: 4px;
+$code-border-left-color: $vade-gold;
+
+/* ============================================
+   Utility Mixins
+   ============================================ */
+
+/* Focus State */
+@mixin focus-ring-periwinkle {
+  outline: none;
+  box-shadow: $shadow-focus-periwinkle;
+}
+
+@mixin focus-ring-gold {
+  outline: none;
+  box-shadow: $shadow-focus-gold;
+}
+
+/* Smooth Transitions */
+@mixin transition($properties...) {
+  transition-property: $properties;
+  transition-duration: $transition-base;
+  transition-timing-function: $easing-default;
+}
+
+/* Hover Lift Effect */
+@mixin hover-lift {
+  transition: all $transition-base;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: $shadow-lg;
+  }
+}
+
+/* Responsive Typography */
+@mixin responsive-text($min-size, $max-size) {
+  font-size: clamp($min-size, 2.5vw, $max-size);
+}
+
+/* Truncate Text */
+@mixin truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Line Clamp */
+@mixin line-clamp($lines) {
+  display: -webkit-box;
+  -webkit-line-clamp: $lines;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Screen Reader Only */
+@mixin sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Reset Button */
+@mixin reset-button {
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+}
+
+/* ============================================
+   Accessibility
+   ============================================ */
+
+/* Reduced Motion */
+@mixin prefers-reduced-motion {
+  @media (prefers-reduced-motion: reduce) {
+    @content;
+  }
+}
+
+/* Dark Mode */
+@mixin dark-mode {
+  @media (prefers-color-scheme: dark) {
+    @content;
+  }
+}
+
+/* High Contrast */
+@mixin high-contrast {
+  @media (prefers-contrast: high) {
+    @content;
+  }
+}
+
+/* ============================================
+   Brand-Specific Utilities
+   ============================================ */
+
+/* Periwinkle Gradient */
+@mixin gradient-periwinkle {
+  background: linear-gradient(135deg, $vade-periwinkle-light 0%, $vade-periwinkle-deep 100%);
+}
+
+/* Gold Gradient */
+@mixin gradient-gold {
+  background: linear-gradient(135deg, lighten($vade-gold, 10%) 0%, darken($vade-gold, 10%) 100%);
+}
+
+/* Periwinkle + Gold Gradient (Brand) */
+@mixin gradient-brand {
+  background: linear-gradient(135deg, $vade-periwinkle-light 0%, $vade-periwinkle-deep 50%, $vade-gold 100%);
+}
+
+/* ============================================
+   Notes for Implementation
+   ============================================ */
+
+/*
+USAGE:
+1. Import this file first in your SCSS files
+2. Use variables throughout your styles
+3. Prefer design tokens over hard-coded values
+4. Use mixins for common patterns
+
+EXAMPLES:
+
+// Colors
+.button-primary {
+  background: $vade-gold;
+  color: $vade-text-dark;
+
+  &:hover {
+    background: darken($vade-gold, 8%);
+  }
+}
+
+// Typography
+.heading {
+  font-size: $text-3xl;
+  font-weight: $weight-bold;
+  line-height: $leading-tight;
+  letter-spacing: $tracking-tight;
+}
+
+// Spacing
+.card {
+  padding: $space-6;
+  margin-bottom: $space-8;
+  border-radius: $radius-lg;
+}
+
+// Mixins
+.link {
+  @include transition(color, opacity);
+
+  &:focus {
+    @include focus-ring-periwinkle;
+  }
+}
+
+.feature-card {
+  @include hover-lift;
+}
+*/

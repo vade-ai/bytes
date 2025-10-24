@@ -1,13 +1,13 @@
 color:
   background: "#FFFFFF"    # Pure white
-  foreground: "#171717"    # Almost black (easier on eyes than pure black)
-  primary:    "#6366F1"    # Indigo - professional and energetic
+  foreground: "#2D2D4A"    # Deep periwinkle-gray for text
+  primary:    "#7B7DD4"    # Periwinkle deep - links, headings, interactive
   secondary:  "#737373"    # Gray for metadata
-  tertiary:   "#F5F5F5"    # Light gray for code blocks
-  success:    "#10B981"    # Green
-  info:       "#3B82F6"    # Blue
-  warning:    "#F59E0B"    # Amber
-  danger:     "#EF4444"    # Red
+  tertiary:   "#F5F5F8"    # Light gray-periwinkle for subtle backgrounds
+  success:    "#68D391"    # Green (accessible)
+  info:       "#7B7DD4"    # Use primary periwinkle
+  warning:    "#ECB768"    # Rocketfuel gold - mapped to warning for CTAs
+  danger:     "#FC8181"    # Red (soft)
 
 logo:
   medium: /images/civitas-icon.svg
