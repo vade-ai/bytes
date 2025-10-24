@@ -17,9 +17,9 @@ $text-muted:     #737373;     // Gray for metadata
   background: linear-gradient(180deg, #FFFFFF 0%, #F5F5F8 100%);
   border-bottom: 3px solid #ECB768 !important;  // Bold gold accent border (matches dark mode)
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);  // Stronger shadow for depth
-  min-height: 2.75rem;  // Compact 44px height
-  padding-top: 0.375rem;
-  padding-bottom: 0.375rem;
+  min-height: 2.25rem;  // Ultra-compact 36px height
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
 }
 
 .navbar-brand {
