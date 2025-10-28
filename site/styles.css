@@ -1,0 +1,491 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+/* Enable class-based dark mode in Tailwind v4 */
+@variant dark (&:where(.dark, .dark *));
+
+/* Specify additional source paths for Quarto files */
+@source "../site/**/*.{html,qmd,js}";
+
+/* Vade Brand Colors & Theme Configuration */
+@theme {
+  /* ========== VADE COLOR PALETTE ========== */
+  /* Based on Primary: #CCCCF4 (Periwinkle) & Accent: #ECB768 (Rocketfuel Gold) */
+
+  /* Periwinkle (Primary) - Full Scale */
+  --color-periwinkle-50: #F5F5FE;
+  --color-periwinkle-100: #EBEBFD;
+  --color-periwinkle-200: #D7D7FB;
+  --color-periwinkle-300: #CCCCF4;  /* Original brand color */
+  --color-periwinkle-400: #AFAFED;
+  --color-periwinkle-500: #9B9CE0;
+  --color-periwinkle-600: #7B7DD4;
+  --color-periwinkle-700: #5E5FC4;
+  --color-periwinkle-800: #4647A0;
+  --color-periwinkle-900: #35367A;
+  --color-periwinkle-950: #252654;
+
+  /* Rocketfuel (Accent) - Full Scale */
+  --color-rocketfuel-50: #FEF8EE;
+  --color-rocketfuel-100: #FDF0DD;
+  --color-rocketfuel-200: #FBE1BB;
+  --color-rocketfuel-300: #F9D299;
+  --color-rocketfuel-400: #F0C37F;
+  --color-rocketfuel-500: #ECB768;  /* Original brand color */
+  --color-rocketfuel-600: #D4A563;
+  --color-rocketfuel-700: #BC8E4B;
+  --color-rocketfuel-800: #9A7339;
+  --color-rocketfuel-900: #6E5228;
+  --color-rocketfuel-950: #4A371B;
+
+  /* Emerald (Link Accent) - Full Scale */
+  --color-emerald-50: #ECFDF5;
+  --color-emerald-100: #D1FAE5;
+  --color-emerald-200: #A7F3D0;
+  --color-emerald-300: #6EE7B7;
+  --color-emerald-400: #34D399;
+  --color-emerald-500: #68D391;  /* Your link color */
+  --color-emerald-600: #10B981;
+  --color-emerald-700: #059669;
+  --color-emerald-800: #047857;
+  --color-emerald-900: #065F46;
+  --color-emerald-950: #064E3B;
+
+  /* Neutral Grays (Designed to work with both colors) */
+  --color-neutral-50: #FAFAFA;
+  --color-neutral-100: #F5F5F7;
+  --color-neutral-200: #E8E8EC;
+  --color-neutral-300: #D4D4DC;
+  --color-neutral-400: #A8A8B8;
+  --color-neutral-500: #7C7C94;
+  --color-neutral-600: #5A5A70;
+  --color-neutral-700: #3E3E54;
+  --color-neutral-800: #2D2D4A;
+  --color-neutral-900: #1A1A2E;
+  --color-neutral-950: #0F0F1A;
+
+  /* Semantic Color Mappings */
+  --color-primary: var(--color-periwinkle-600);
+  --color-primary-light: var(--color-periwinkle-300);
+  --color-primary-dark: var(--color-periwinkle-700);
+
+  --color-accent: var(--color-rocketfuel-500);
+  --color-accent-light: var(--color-rocketfuel-300);
+  --color-accent-dark: var(--color-rocketfuel-700);
+
+  --color-link: var(--color-emerald-700);
+  --color-link-hover: var(--color-emerald-800);
+  --color-link-dark: var(--color-emerald-400);
+  --color-link-dark-hover: var(--color-emerald-300);
+
+  --color-text-dark: var(--color-neutral-900);
+  --color-text-light: var(--color-neutral-100);
+  --color-bg-dark: var(--color-neutral-900);
+  --color-bg-light: var(--color-neutral-50);
+
+  /* Typography */
+  --font-family-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  --font-family-mono: 'JetBrains Mono', 'Fira Code', 'Consolas', 'Monaco', monospace;
+
+  /* Layout Variables */
+  --navbar-height: 48px;
+  --sidebar-width: 280px;
+  --content-max-width: 720px;
+
+  /* ========== TAILWIND COLOR EXTENSIONS ========== */
+  /* Extend Tailwind's default colors with our brand palette */
+
+  --color-periwinkle: var(--color-periwinkle-600);
+  --color-rocketfuel: var(--color-rocketfuel-500);
+
+  /* ========== TYPOGRAPHY (PROSE) CUSTOMIZATION ========== */
+  /* Customize prose styles to match Vade brand */
+
+  /* Base prose colors */
+  --color--prose-body: var(--color-neutral-700);
+  --color--prose-headings: var(--color-neutral-900);
+  --color--prose-lead: var(--color-neutral-600);
+  --color--prose-links: var(--color-emerald-700);
+  --color--prose-bold: var(--color-neutral-900);
+  --color--prose-counters: var(--color-neutral-500);
+  --color--prose-bullets: var(--color-neutral-400);
+  --color--prose-hr: var(--color-neutral-200);
+  --color--prose-quotes: var(--color-neutral-900);
+  --color--prose-quote-borders: var(--color-emerald-400);
+  --color--prose-captions: var(--color-neutral-600);
+  --color--prose-code: var(--color-periwinkle-700);
+  --color--prose-pre-code: var(--color-neutral-200);
+  --color--prose-pre-bg: var(--color-neutral-900);
+  --color--prose-th-borders: var(--color-neutral-300);
+  --color--prose-td-borders: var(--color-neutral-200);
+
+  /* Dark mode prose colors */
+  --color--prose-invert-body: var(--color-neutral-300);
+  --color--prose-invert-headings: var(--color-neutral-100);
+  --color--prose-invert-lead: var(--color-neutral-400);
+  --color--prose-invert-links: var(--color-emerald-400);
+  --color--prose-invert-bold: var(--color-neutral-100);
+  --color--prose-invert-counters: var(--color-neutral-500);
+  --color--prose-invert-bullets: var(--color-neutral-600);
+  --color--prose-invert-hr: var(--color-neutral-700);
+  --color--prose-invert-quotes: var(--color-neutral-100);
+  --color--prose-invert-quote-borders: var(--color-emerald-700);
+  --color--prose-invert-captions: var(--color-neutral-400);
+  --color--prose-invert-code: var(--color-periwinkle-400);
+  --color--prose-invert-pre-code: var(--color-neutral-300);
+  --color--prose-invert-pre-bg: var(--color-neutral-950);
+  --color--prose-invert-th-borders: var(--color-neutral-700);
+  --color--prose-invert-td-borders: var(--color-neutral-800);
+}
+
+/* Base styles */
+@layer base {
+  html {
+    font-family: var(--font-family-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: white;
+    color: var(--color-neutral-800);
+    font-size: 18px;
+    line-height: 1.75;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  /* Dark mode styles (class-based) */
+  :where(.dark) body {
+    background-color: var(--color-bg-dark);
+    color: var(--color-text-light);
+  }
+
+  /* Typography hierarchy */
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    line-height: 1.3;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--color-neutral-900);
+  }
+
+  h2 {
+    font-size: 1.875rem;
+    margin-top: 3rem;
+    margin-bottom: 1.25rem;
+    color: var(--color-neutral-900);
+    position: relative;
+    padding-bottom: 0.5rem;
+  }
+
+  h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 3rem;
+    height: 3px;
+    background: linear-gradient(to right, var(--color-periwinkle-600), var(--color-rocketfuel-500));
+    border-radius: 2px;
+    opacity: 0.6;
+  }
+
+  h3 {
+    font-size: 1.5rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    color: var(--color-neutral-800);
+  }
+
+  :where(.dark) h1 {
+    color: var(--color-neutral-100);
+  }
+
+  :where(.dark) h2 {
+    color: var(--color-neutral-100);
+  }
+
+  :where(.dark) h3 {
+    color: var(--color-neutral-200);
+  }
+
+  /* Enhanced link styles */
+  a {
+    color: var(--color-link);
+    text-decoration: none;
+    transition: all 0.2s ease;
+    position: relative;
+  }
+
+  a:hover {
+    color: var(--color-link-hover);
+  }
+
+  :where(.dark) a {
+    color: var(--color-link-dark);
+  }
+
+  :where(.dark) a:hover {
+    color: var(--color-link-dark-hover);
+  }
+
+  /* Emphasis styling */
+  strong {
+    font-weight: 600;
+    color: var(--color-periwinkle-700);
+  }
+
+  :where(.dark) strong {
+    color: var(--color-periwinkle-400);
+  }
+
+  /* Code styling */
+  code {
+    font-family: var(--font-family-mono);
+    font-size: 0.9em;
+    padding: 0.2em 0.4em;
+    background-color: var(--color-neutral-100);
+    border-radius: 0.25rem;
+    transition: background-color 0.2s ease;
+  }
+
+  :where(.dark) code {
+    background-color: var(--color-neutral-800);
+  }
+
+  /* Prevent content from being hidden under fixed navbar */
+  #quarto-content {
+    margin-top: 0;
+  }
+
+  /* Better paragraph spacing */
+  p {
+    margin-bottom: 1.25rem;
+  }
+
+  /* List styling */
+  ul, ol {
+    margin-bottom: 1.25rem;
+    padding-left: 1.5rem;
+  }
+
+  li {
+    margin-bottom: 0.5rem;
+  }
+}
+
+/* Layout components */
+@layer components {
+  /* Sidebar */
+  .sidebar-left {
+    @apply fixed left-0 bg-neutral-50 dark:bg-neutral-900 border-r border-neutral-200 dark:border-neutral-800;
+    top: var(--navbar-height);
+    width: var(--sidebar-width);
+    height: calc(100vh - var(--navbar-height));
+    overflow-y: auto;
+    padding: 1.5rem 1rem;
+    z-index: 40;
+  }
+
+  /* Hide sidebar on mobile */
+  @media (max-width: 768px) {
+    .sidebar-left {
+      transform: translateX(-100%);
+      transition: transform 0.3s ease;
+    }
+
+    .sidebar-left.open {
+      transform: translateX(0);
+    }
+  }
+
+  /* Main content area with prose typography */
+  #quarto-content main {
+    max-width: var(--content-max-width);
+    margin-left: auto;
+    margin-right: auto;
+    padding: 2rem 1.5rem;
+  }
+
+  /* Apply prose styles to article content */
+  #quarto-content article,
+  #quarto-content .quarto-title-block,
+  #quarto-content main > * {
+    @apply prose prose-lg dark:prose-invert;
+    max-width: 100%;
+  }
+
+  /* Prose customizations for better readability */
+  .prose {
+    /* Tighter spacing for better skimmability */
+    --tw-prose-body: var(--color--prose-body);
+    --tw-prose-headings: var(--color--prose-headings);
+    --tw-prose-links: var(--color--prose-links);
+    --tw-prose-bold: var(--color--prose-bold);
+    --tw-prose-code: var(--color--prose-code);
+    --tw-prose-quotes: var(--color--prose-quotes);
+    --tw-prose-quote-borders: var(--color--prose-quote-borders);
+  }
+
+  .prose.prose-invert {
+    --tw-prose-body: var(--color--prose-invert-body);
+    --tw-prose-headings: var(--color--prose-invert-headings);
+    --tw-prose-links: var(--color--prose-invert-links);
+    --tw-prose-bold: var(--color--prose-invert-bold);
+    --tw-prose-code: var(--color--prose-invert-code);
+    --tw-prose-quotes: var(--color--prose-invert-quotes);
+    --tw-prose-quote-borders: var(--color--prose-invert-quote-borders);
+  }
+
+  /* Better paragraph spacing */
+  .prose p {
+    margin-top: 1.25em;
+    margin-bottom: 1.25em;
+  }
+
+  /* Improved heading hierarchy */
+  .prose h1 {
+    font-size: 2.25em;
+    margin-top: 0;
+    margin-bottom: 0.8888889em;
+    line-height: 1.1111111;
+    font-weight: 700;
+  }
+
+  .prose h2 {
+    font-size: 1.5em;
+    margin-top: 2em;
+    margin-bottom: 1em;
+    line-height: 1.3333333;
+    font-weight: 600;
+  }
+
+  .prose h3 {
+    font-size: 1.25em;
+    margin-top: 1.6em;
+    margin-bottom: 0.6em;
+    line-height: 1.6;
+    font-weight: 600;
+  }
+
+  /* Code blocks */
+  .prose code {
+    color: var(--color--prose-code);
+    font-weight: 500;
+    font-size: 0.875em;
+    padding: 0.2em 0.4em;
+    background-color: var(--color-periwinkle-50);
+    border-radius: 0.25rem;
+  }
+
+  .prose.prose-invert code {
+    color: var(--color--prose-invert-code);
+    background-color: var(--color-neutral-800);
+  }
+
+  .prose pre {
+    background-color: var(--color--prose-pre-bg);
+    border-radius: 0.5rem;
+    padding: 1.25em 1.5em;
+    overflow-x: auto;
+  }
+
+  .prose pre code {
+    background-color: transparent;
+    padding: 0;
+    color: var(--color--prose-pre-code);
+  }
+
+  /* Links with better hover state */
+  .prose a {
+    color: var(--color--prose-links);
+    text-decoration: underline;
+    text-decoration-color: var(--color-emerald-400);
+    text-underline-offset: 2px;
+    transition: all 0.15s ease;
+  }
+
+  .prose a:hover {
+    color: var(--color-emerald-800);
+    text-decoration-color: var(--color-emerald-700);
+  }
+
+  .prose.prose-invert a {
+    color: var(--color--prose-invert-links);
+    text-decoration-color: var(--color-emerald-700);
+  }
+
+  .prose.prose-invert a:hover {
+    color: var(--color-emerald-300);
+    text-decoration-color: var(--color-emerald-400);
+  }
+
+  /* Better list styling */
+  .prose ul, .prose ol {
+    margin-top: 1.25em;
+    margin-bottom: 1.25em;
+    padding-left: 1.625em;
+  }
+
+  .prose li {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+  }
+
+  /* Strong text with accent color hint */
+  .prose strong {
+    color: var(--color--prose-bold);
+    font-weight: 600;
+  }
+
+  /* Blockquotes with brand accent */
+  .prose blockquote {
+    font-style: italic;
+    border-left-width: 0.25rem;
+    border-left-color: var(--color--prose-quote-borders);
+    padding-left: 1em;
+    margin-top: 1.6em;
+    margin-bottom: 1.6em;
+  }
+
+  .prose.prose-invert blockquote {
+    border-left-color: var(--color--prose-invert-quote-borders);
+  }
+
+  /* Adjust layout when sidebar is present */
+  @media (min-width: 769px) {
+    #quarto-content {
+      margin-left: var(--sidebar-width);
+    }
+  }
+}
+
+/* Utility classes */
+@layer utilities {
+  .content-width {
+    max-width: var(--content-max-width);
+  }
+
+  /* Smooth selection color */
+  ::selection {
+    background-color: var(--color-periwinkle-200);
+    color: var(--color-neutral-900);
+  }
+
+  :where(.dark) ::selection {
+    background-color: var(--color-periwinkle-800);
+    color: var(--color-neutral-100);
+  }
+
+  /* Focus visible for accessibility */
+  *:focus-visible {
+    outline: 2px solid var(--color-periwinkle-600);
+    outline-offset: 2px;
+    border-radius: 0.25rem;
+  }
+}

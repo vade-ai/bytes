@@ -1,0 +1,30 @@
+{
+  "name": "bytes",
+  "version": "1.0.0",
+  "description": "Technical explorations and insights from the Vade team.",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build:css": "tailwindcss -i ./site/styles.css -o ./site/dist/styles.css",
+    "watch:css": "tailwindcss -i ./site/styles.css -o ./site/dist/styles.css --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vade-ai/bytes.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vade-ai/bytes/issues"
+  },
+  "homepage": "https://github.com/vade-ai/bytes#readme",
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.1.16",
+    "@tailwindcss/typography": "^0.5.19",
+    "tailwindcss": "^4.1.16"
+  }
+}
