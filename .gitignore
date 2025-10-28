@@ -3,6 +3,12 @@ temp/
 _site/
 /.quarto/
 .luarc.json
+site/_site/
+site/dist/
+
+# Node / npm
+node_modules/
+package-lock.json
 
 # Clojure
 .cpcache/

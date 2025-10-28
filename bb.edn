@@ -3,8 +3,12 @@
  :tasks
  {;; Development tasks
   dev
-  {:doc "Start Clay in interactive browser watch mode"
-   :task (shell "clojure -M:clay examples/welcome_to_vade_bytes.clj")}
+  {:doc "Start Clay in interactive browser watch mode (requires a .clj file path)"
+   :task (let [file (first *command-line-args*)]
+           (when-not file
+             (println "Usage: bb dev <path/to/file.clj>")
+             (System/exit 1))
+           (shell (str "clojure -M:clay " file)))}
 
   dev-site
   {:doc "Build to site/ and start Quarto preview (for full site preview)"
@@ -16,9 +20,30 @@
            (shell "quarto preview site"))}
 
   ;; Build tasks
+  build-css
+  {:doc "Compile Tailwind CSS"
+   :requires ([babashka.fs :as fs])
+   :task (do
+           (fs/create-dirs "site/dist")
+           (shell "npx @tailwindcss/cli -i site/styles.css -o site/dist/styles.css --minify")
+           (println "✅ Tailwind CSS compiled"))}
+
+  dev-css
+  {:doc "Watch and compile Tailwind CSS (run in separate terminal)"
+   :requires ([babashka.fs :as fs])
+   :task (do
+           (fs/create-dirs "site/dist")
+           (println "👀 Watching Tailwind CSS for changes...")
+           (shell "npx @tailwindcss/cli -i site/styles.css -o site/dist/styles.css --watch"))}
+
   build
   {:doc "Build Clojure namespaces to Quarto markdown"
-   :task (shell "clojure -M:clay -A:markdown")}
+   :task (do
+           (println "🎨 Building Tailwind CSS...")
+           (run 'build-css)
+           (println "\n📦 Building Clojure content...")
+           (shell "clojure -M:clay -A:markdown")
+           (println "✅ Build complete"))}
 
   render
   {:doc "Render Quarto site to HTML"
@@ -54,6 +79,9 @@
            (when (fs/exists? "site/_site")
              (fs/delete-tree "site/_site")
              (println "🧹 Removed site/_site/"))
+           (when (fs/exists? "site/dist")
+             (fs/delete-tree "site/dist")
+             (println "🧹 Removed site/dist/"))
            (when (fs/exists? "temp")
              (fs/delete-tree "temp")
              (println "🧹 Removed temp/"))
@@ -112,12 +140,12 @@
                         (str/replace (re-pattern "[^a-z0-9_]") ""))
                date (-> (java.time.LocalDate/now)
                         str)
-               namespace-name (str "posts." slug)
-               file-path (str "src/posts/" slug ".clj")]
+               namespace-name (str "com.vadelabs.bytes.posts." slug)
+               file-path (str "src/com/vadelabs/bytes/posts/" slug ".clj")]
            (when (fs/exists? file-path)
              (println (str "❌ Post already exists: " file-path))
              (System/exit 1))
-           (fs/create-dirs "src/posts")
+           (fs/create-dirs "src/com/vadelabs/bytes/posts")
            (spit file-path
                  (format "^{:kindly/hide-code true
   :clay {:title \"%s\"
@@ -150,10 +178,12 @@
            (println "Vade Bytes - Babashka Tasks\n")
            (println "Development:")
            (println "  bb dev        - Start Clay in interactive browser mode (temp/ preview)")
+           (println "  bb dev-css    - Watch and compile Tailwind CSS (run in separate terminal)")
            (println "  bb dev-site   - Build and preview full Quarto site (run 'bb build' to rebuild)")
            (println "  bb serve      - Same as dev-site")
            (println "\nBuilding:")
-           (println "  bb build      - Build content with Clay to site/")
+           (println "  bb build-css  - Compile Tailwind CSS only")
+           (println "  bb build      - Build CSS and Clojure content to site/")
            (println "  bb render     - Render site with Quarto")
            (println "  bb site       - Build and render (full build)")
            (println "\nMaintenance:")

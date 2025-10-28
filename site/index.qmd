@@ -1,9 +1,113 @@
 ---
 title: "Vade Bytes"
-about:
-  template: jolla
+page-layout: full
 ---
 
-Welcome to **Vade Bytes** - technical explorations, insights, and deep dives from the Vade team.
+<div class="max-w-2xl mx-auto px-6 py-16 md:py-24">
 
-[About](about.qmd) | [Posts](posts.qmd)
+<div class="text-lg md:text-xl leading-relaxed space-y-6 text-gray-800 dark:text-gray-200">
+
+I'm tired of viral hooks and empty content.
+
+For five years, I've tried to build distribution as a bootstrapped founder. Started blogs that died after three posts. Created content calendars I abandoned within weeks. The cycle repeated endlessly.
+
+I studied the "experts." Learned their frameworks, their hooks, their strategies. And that's when I learned something uncomfortable: **most tech content is performance art.** Optimized for engagement, not truth. Written for algorithms, not humans.
+
+Every time I sat down to replicate it, I'd freeze. *What will get engagement? What's the hook?* Then I'd write nothing. Or something that felt fake.
+
+**This is my final attempt at finding my own voice.**
+
+Not the voice that gets likes. The voice I actually enjoy using. The voice that shares what I genuinely find interesting.
+
+The workflow for Vade Bytes is dead simple:
+
+**Do shit. Talk about it. Repeat.**
+
+No content calendar. No viral frameworks. No performance art. Just: build something, learn something, write about it.
+
+If I can't be consistent being myself, then there's no point being consistent at all.
+
+## What Vade Bytes Actually Is
+
+This is my public notebook. My learning journal while building [Vade AI](https://vade.ai) and living a fulfilling life.
+
+**What you're signing up for:**
+
+- **Raw notes, not polished** — You're getting my actual learning process
+- **Written for truth, not virality** — No hooks, no growth hacks
+- **Messy middle included** — Mistakes, pivots, the stuff everyone hides
+- **Fellow traveler, not guru** — I'm figuring this out alongside you
+- **When I have something to say** — No forced schedule
+
+I'm not promising a schedule. I'm promising substance.
+
+**When I publish, it'll be in one of these areas:**
+
+- **📊 Tech Tides** — Weekly summaries of everything I learned and built
+- **🏗️ Architect's Journal** — System design at scale, practical decisions
+- **🗄️ Database Deep Dive** — How databases really work under the hood
+- **💡 Founder's Journey** — Real patterns from founders who built real companies
+- **📚 Research Refined** — Papers distilled into grokkable explanations
+- **⚙️ Clojure Chronicles** — Functional programming wisdom and simplicity
+- **🔧 Tandem Tinkering** — Electronics and building things with my kind
+- **🤖 How To AI** — Practical AI workflows I actually use
+
+**The common thread?** These are things I'm actively exploring while building Vade AI.
+
+## Why I'm Doing This
+
+I'm not going to pretend this is purely altruistic. I have clear goals:
+
+**1. Satisfy My Curiosity**
+
+For four years, I stressed about the next paycheck with a small team. I gave up the team. Found a job that lets me explore while being useful. Now I can build without panic.
+
+**This is me choosing to enjoy the process.**
+
+And doing it in public? That's my accountability mechanism.
+
+**2. Build My Personal Brand**
+
+I believe there's still room for building a brand on genuine curiosity and real experience. This is my bet that authenticity still works.
+
+**3. Create Distribution for Vade AI**
+
+When Vade AI launches, I need people who understand what I'm building. People who've watched me build it in public. Not because I pitched them, but because they've seen my thinking.
+
+## The Restart
+
+For five years, I tried to bootstrap Vade AI with a small team. Office in Bangalore, big dreams. My wife joined, we brought our newborn along.
+
+But the stress of a depleting bank account took its toll. **So I gave up the team.** Not the dream. Just the unsustainable way I was pursuing it.
+
+I found a job that gives me mental space to build Vade AI properly. Without panic. Without the terror of "how do I make payroll?"
+
+**This is my restart with a fresh perspective.**
+
+Vade Bytes is part of that restart. Building my brand authentically. Creating distribution by earning trust through sharing. Actually enjoying the process.
+
+## Join Me
+
+**Vade Bytes is for builders.**
+
+People genuinely curious about various topics. Who like to build things and learn by doing. Tired of marketing fluff and performative content.
+
+If that's you, subscribe.
+
+I'm restarting my journey with sustainable pace. Building Vade AI while living a fulfilling life. Learning out loud. Sharing the receipts.
+
+No viral hooks. No follower count games. Just genuine curiosity and real building.
+
+<div class="mt-12 pt-8 border-t border-neutral-200 dark:border-neutral-700">
+  <a href="/posts.xml" class="inline-flex items-center gap-2 px-6 py-3 bg-[var(--color-rocketfuel-500)] hover:bg-[var(--color-rocketfuel-600)] text-white font-semibold rounded-lg transition-colors duration-200">
+    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+      <path d="M5 3a1 1 0 000 2c5.523 0 10 4.477 10 10a1 1 0 102 0C17 8.373 11.627 3 5 3z"></path>
+      <path d="M4 9a1 1 0 011-1 7 7 0 017 7 1 1 0 11-2 0 5 5 0 00-5-5 1 1 0 01-1-1zM3 15a2 2 0 114 0 2 2 0 01-4 0z"></path>
+    </svg>
+    Subscribe via RSS
+  </a>
+</div>
+
+</div>
+
+</div>
