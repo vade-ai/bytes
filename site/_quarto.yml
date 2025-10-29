@@ -4,7 +4,7 @@ project:
 website:
   title: "Vade Bytes"
   favicon: "favicon.ico"
-  site-url: "https://vade-ai.github.io/bytes"
+  site-url: "https://bytes.vadeai.com"
   description: "Learning out loud while building"
   draft-mode: unlinked
   open-graph: true
