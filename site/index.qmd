@@ -101,86 +101,31 @@ And something unexpected happened: I finally got back to what I loved about coll
 
 **Vade Bytes is the documentation of that curiosity.**
 
-But here's what really brought it home.
+---
 
-Last week, my 5-year-old asked me how his toy car works. Not just "it has batteries" - he wanted to know HOW. Why do the wheels turn when you push the button? What's happening inside?
+## What This Means
 
-I see that same curiosity in him that I felt with that first circuit. That need to understand, to explore, to build.
+Through all those years of performance culture, I learned what actually matters. Here's what Vade Bytes stands for:
 
-Part of Vade Bytes is me finding ways to share this world with him. To show him the realm of discovery I found in college, before life convinced me that curiosity needs a business model.
+**Curiosity over performance** - Build to understand, not just to monetize or impress.
 
-Some of my explorations will be projects we tackle together. Some will be me going deep into topics he won't care about for years. But all of it will be driven by that same feeling that hooked me at 19: the pure joy of figuring things out.
+**Space over speed** - Mental clarity beats constant hustle. You can't think clearly in survival mode.
 
-If I can pass that down to him - and maybe to you - then all those years of chasing weren't wasted. They taught me what matters.
+**Exploration over perfection** - Share the messy process, failed attempts, and what you're figuring out in real-time.
+
+**Questions over frameworks** - Foster genuine curiosity. Reject the guru culture that shames people for asking "why."
+
+**Building over talking** - Document what you're actually making, not what you think will get engagement.
 
 ---
 
-## What You're Getting Here
+## Ready to Explore?
 
-My public lab notebook. Late-night experiments. Failed attempts. Unexpected discoveries. The feeling of building something from nothing, documented in real-time.
+My public lab notebook. Building Vade AI, exploring LLMs, tinkering with whatever sparks curiosity. Failed attempts included.
 
-Some weeks it might be building Vade AI, a no-code platform. Other weeks it could be exploring LLMs, teaching my son about circuits, tinkering with technologies I don't understand yet, or diving deep into problems I find fascinating.
+No content calendar. No guru frameworks. Just genuine discovery documented in real-time.
 
-Whatever gets me obsessing late at night? That's what you'll read about.
-
-This is what curiosity-driven learning actually looks like:
-
-- That circuit that finally works at 2am (and the 47 attempts that didn't)
-- Deep dives into topics I'm exploring right now
-- Projects with my son as he discovers how things work
-- Raw notes from building ambitious things
-- Lessons from five years of doing everything wrong
-- The messy, obsessive process everyone else edits out
-
-No content calendar. No posting schedule. No "5 frameworks to..." Just the genuine excitement of discovery, the frustration of failure, and the documentation of what happens when you follow your curiosity without worrying about engagement.
-
-Think of it like learning alongside someone who's genuinely excited about what they're discovering. Someone who still gets that feeling from a working circuit. I'm not teaching a curriculum. I'm sharing what I'm figuring out, as I figure it out.
-
-If something I'm exploring sparks that same feeling in you - come along for the ride.
-
----
-
-## Who This Is For
-
-You, if you've ever stayed up late obsessing over a problem not because you had to, but because you couldn't stop thinking about it.
-
-You, if you remember the feeling of building something from nothing and you've been chasing that feeling ever since.
-
-You, if you miss learning for the joy of it.
-
-You, if you want to watch someone explore ideas with the same curiosity as a 5-year-old asking "but how does it REALLY work?"
-
-You, if you're curious about AI, technology, building things, or just want to explore ideas without a predetermined outcome.
-
-You, if you'd rather learn by following someone's real experiments than reading polished tutorials that skip all the failures.
-
-You, if you're building something ambitious while juggling responsibilities that actually matter more than any single project.
-
-You, if you want to learn alongside someone who's figuring things out in real-time, not someone pretending they have all the answers.
-
-Basically, Vade Bytes is for curious minds who want to explore, tinker, and build - not for people looking for quick wins or guru frameworks.
-
----
-
-## Start Where You Are
-
-You don't need permission to follow your curiosity. You don't need a perfect system or a content calendar or an audience.
-
-You just need to start exploring what genuinely interests you.
-
-If you've been holding back because you're not "expert enough" yet? Explore anyway. Learning in public means documenting the journey, not proving you've arrived.
-
-If you've been stuck trying to sound like everyone else, stop. Your specific curiosity, your particular questions, your unique way of exploring: that's what makes learning engaging for others.
-
-If you've been exhausted by the performance, you're not alone. There are more of us choosing curiosity over strategy than you think. We're just busy exploring instead of broadcasting.
-
-The internet doesn't need another guru selling frameworks. It needs more people sharing what fascinates them, what they're tinkering with, what they're genuinely trying to understand.
-
-So follow your curiosity. Build things because they're interesting. Explore ideas that spark your mind. Document what you discover, not because it fits a narrative, but because the act of documenting deepens your understanding.
-
-The people who share your curiosity will find you. And when they do, they'll stick around to learn alongside you. Not because you have all the answers, but because you're asking interesting questions.
-
-That's what I'm doing here. Come explore with me.
+Subscribe if you miss learning for the joy of it.
 
 <div class="mt-12 pt-8 border-t border-neutral-200 dark:border-neutral-700">
   <a href="/posts.xml" class="inline-flex items-center gap-2 px-6 py-3 bg-[var(--color-rocketfuel-500)] hover:bg-[var(--color-rocketfuel-600)] text-white font-semibold rounded-lg transition-colors duration-200">
