@@ -31,45 +31,39 @@ And somewhere along the way, I lost it completely.
 
 ---
 
-## When Building Became Performing
+## When Building Became Performance
 
-Something happened to technical writing. Maybe it happened to me too.
+Something shifted in tech. Maybe it happened to me too.
 
-You used to share what you learned. Document your journey. It felt genuine because someone built something real and shared the unfiltered process.
+The game became about earning more. If you weren't increasing your salary constantly, you were somehow losing. It wasn't about curiosity anymore. It was raises, appraisal cycles, climbing the ladder.
 
-Then something shifted. Fake MRR screenshots. Engagement bait. People gaming algorithms instead of building real things.
+When I was curious? I didn't have time. When I had time? I was exhausted.
+
+I joined an early stage startup thinking I'd get back to building. Instead, I got the grind. It wasn't building for the sake of building. It was "we need to make money." "Launch this feature by Friday." "The system is down, get it back up."
+
+Even when you wanted to take time to understand, to learn, the pressure drove you to just make the noise stop. Pick the fastest option. Get it done. Move on.
+
+So I started my own company. Surely that would solve it, right?
+
+Wrong.
+
+Now it was constant pressure to make money. Talking to clients, convincing them to hire you for their next project just to keep the lights on. Performance for customers. Performance for hiring developers. Performance for survival.
+
+And somewhere in there, technical writing shifted too. You used to share what you learned. Document your journey. It felt genuine because someone built something real and shared the unfiltered process.
+
+Then something changed. Fake MRR screenshots. Engagement bait. People gaming algorithms instead of building real things.
 
 I wanted to believe people were truthful. But except for a rare few, everyone was just selling the dream, not living it.
 
 And I started performing too. Not because I wanted to, but because I thought I had to.
 
+Don't know the latest framework? You're a loser. Nobody asks why. Nobody talks about tradeoffs. And if you dared to ask? You got booed off, taunted so hard you wouldn't ask again.
+
+It became performance all the way through. And if you weren't performing, you weren't winning.
+
 I tried playing this game for five years. And honestly? I sucked at it.
 
 Same five years I was trying to bootstrap a company, by the way.
-
----
-
-## Two Kinds of Writing
-
-There are two ways to write: express yourself, or impress someone else.
-
-Writing to impress is exhausting. You're always performing, always calculating. What hook will stop the scroll? Which framework will get shares? What emotion should I trigger? You finish each piece drained, wondering if you said anything real.
-
-Writing to express is different. You're thinking through ideas, working out problems on the page, sharing what genuinely interests you. Even if nobody reads it, you finish energized because you were true to what you wanted to say.
-
-Writing to express feels like staying up late with a circuit board, obsessing over a problem just because you can't stop thinking about it. Writing to impress feels like writing the report about that circuit for a grade.
-
-I'd spent five years writing for the grade.
-
-For five years, I tried the first way. Started blogs that died after three posts. Created content calendars I abandoned. Studied all the viral frameworks, learned all the hooks, then froze at my keyboard wondering what would get engagement instead of what I wanted to say.
-
-So I wrote nothing. Or I wrote things that sounded like everyone else because I was trying to sound like everyone else.
-
-**Vade Bytes is me choosing the second way.**
-
-The simple way: get curious about something, explore it, document what I learn. Repeat.
-
-If I can't be consistent being myself, there's no point being consistent at all.
 
 ---
 
