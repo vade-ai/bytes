@@ -17,13 +17,13 @@ A Builder's Manifesto
 
 <div class="text-lg md:text-xl leading-relaxed space-y-6 text-gray-800 dark:text-gray-200">
 
-I was 19 when I built my first circuit. A simple counter. Nothing fancy.
+I was 19 when I built my first circuit at IIT Kanpur's electronics club. A simple 0 to 9 counter. Nothing impressive.
 
-But getting those LEDs to count up after hours of troubleshooting? That feeling of building something from nothing, of watching electrons dance to logic you created? It hooked me completely.
+But getting it to work after an evening of troubleshooting? Watching those numbers finally count up? That hooked me completely.
 
-I didn't build it because it would make money. I didn't build it to impress anyone. I built it because I couldn't stop thinking about how it worked. Because the late nights obsessing over why pin 7 wasn't grounding properly felt more alive than anything else.
+I didn't build it because it was useful or because anyone asked me to. I built it because I couldn't stop thinking about why the display wasn't working right. Because figuring that out felt more alive than anything else I was doing.
 
-That feeling - the pure excitement of discovery, the joy of tinkering just for the sake of it - that's what I've been chasing for the last 10 years.
+That feeling, the pure joy of making something work just because you're curious, that's what I've been chasing for the last 10 years.
 
 Every decision. Every pivot. Every "strategic move." All of it trying to get back to that feeling.
 
