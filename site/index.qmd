@@ -7,7 +7,7 @@ page-layout: full
 title-block-banner: false
 ---
 
-<div class="max-w-4xl mx-auto px-6 py-16 md:py-24">
+<div class="prose prose-lg dark:prose-invert max-w-4xl mx-auto px-6 py-16 md:py-24">
 
 <div class="mb-16 text-center">
 <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-gray-900 dark:text-white">
