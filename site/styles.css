@@ -479,14 +479,14 @@
     max-width: var(--content-max-width);
   }
 
-  /* Smooth selection color */
+  /* Selection colors using brand periwinkle */
   ::selection {
     background-color: var(--color-periwinkle-200);
     color: var(--color-neutral-900);
   }
 
   :where(.dark) ::selection {
-    background-color: var(--color-periwinkle-800);
+    background-color: rgba(155, 156, 224, 0.3); /* Periwinkle-500 with subtle transparency */
     color: var(--color-neutral-100);
   }
 
