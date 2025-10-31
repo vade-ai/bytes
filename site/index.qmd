@@ -57,7 +57,7 @@ And I started performing too. Not because I wanted to, but because I thought I h
 
 Don't know the latest framework? You're a loser. Nobody asks why. Nobody talks about tradeoffs. And if you dared to ask? You got booed off, taunted so hard you wouldn't ask again.
 
-It became performance all the way through. And if you weren't performing, you weren't winning.
+It became *performance all the way through*. And if you weren't performing, you weren't winning.
 
 I tried playing this game for five years. And honestly? I sucked at it.
 
@@ -79,15 +79,15 @@ You know that advice about focus? About doing one thing really well? Yeah, I was
 
 The stress isn't just about the product. It's about the weight of being responsible for your team's paychecks, your family's future, and your company's survival all at once. It crushes your ability to think clearly about what actually matters.
 
-You can't build something genuinely novel while in constant survival mode.
+**You can't build something genuinely novel while in constant survival mode.**
 
-So I made a choice. Keep the dream, change the path.
+So I made a choice. *Keep the dream, change the path.*
 
 The moment I decided to find work felt like both relief and defeat. Relief because I could finally breathe. Defeat because I'd spent five years believing that "real founders" push through no matter what.
 
-And something unexpected happened: I finally got back to what I loved about college. The freedom to tinker. To explore ideas just because they're interesting. To learn without the pressure of monetization. To build things because I'm curious, not because they have to work immediately.
+And something unexpected happened: I finally got back to what I loved. The freedom to tinker. To explore ideas just because they're interesting. To learn without the pressure of monetization. To build things because I'm curious, not because they have to work immediately.
 
-Vade Bytes is the documentation of that curiosity.
+**Vade Bytes is the documentation of that curiosity.**
 
 ## What I Learned
 
