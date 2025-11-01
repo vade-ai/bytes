@@ -21,6 +21,7 @@ node_modules/
 .calva/
 .clj-kondo/
 .lsp/
+.portal/
 
 # OS
 .DS_Store
